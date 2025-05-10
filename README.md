@@ -34,7 +34,6 @@
   <a href="https://github.com/livyson"><img src="https://img.shields.io/badge/🐙%20GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
   <a href="https://wa.me/5511986469800"><img src="https://img.shields.io/badge/💬%20WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" /></a>
   <a href="https://livyson.medium.com"><img src="https://img.shields.io/badge/✍️%20Medium-00AB6C?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
-  <a href="https://www.youtube.com/@livysonsaymon"><img src="https://img.shields.io/badge▶️%20YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" /></a>
 </p>
 
 ---
