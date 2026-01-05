@@ -1,7 +1,7 @@
 <!-- Profile README.md -->
 # Hello, I'm Livyson! 🚀
 
-- **Head of Engineering & Product** at [Vittude](https://vittude.com/), leading the strategy for product and engineering areas.**.  
+- **Head of Engineering & Product** at [Vittude](https://vittude.com/), leading the strategy for product and engineering areas.  
 - **Head of Technology** at [idwall](https://www.idwall.co), leading an area, aligning tech strategy, and boosting operational efficiency by over 97%.  
 - **Engineering Tech Manager** at [PicPay](https://www.picpay.com), migrated to event-driven architecture and scaled the platform by 210% with robust CI/CD pipelines on AWS.  
 - **University IT Professor** at [UNINASSAU](https://www.uninassau.edu.br), teaching Project Management, Software Engineering, and Systems Analysis.  
