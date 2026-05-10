@@ -9,12 +9,43 @@
 - Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
 
 
-### 📊 GitHub Stats
+<div align="center">
+
+| ☕ Java / Spring Boot | `██████████` 95%  |
+| 🐘 PostgreSQL | `█████████░` 90%         |
+| 🐍 Python | `████████░░` 80%             |
+| 🐇 RabbitMQ | `███████░░░` 75%           |
+| 🍃 MongoDB | `███████░░░` 70%            |
+| ⚡ Redis | `██████░░░░` 65%               |
+| 💎 Ruby | `█████░░░░░` 55%               |
+| 🟨 JavaScript / TS | `█████░░░░░` 50%    |
+| ☁️ AWS / EKS | `████████░░` 85%          | 
+| 🔁 Airflow + dbt | `███████░░░` 70%      | 
+
+</div>
+
+---
+
+### 🏷️ Badges
 
 <div align="center">
 
-<img height="160" src="https://github-readme-stats.vercel.app/api?username=livyson&show_icons=true&hide_border=true&count_private=true&rank_icon=github" />
-<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=livyson&layout=compact&hide_border=true&langs_count=6" />
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
+![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
+![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3572A5?style=for-the-badge&logo=python&logoColor=white)
+![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
+![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)
 
 </div>
 
