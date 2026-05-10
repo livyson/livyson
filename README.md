@@ -8,22 +8,6 @@
 - **Tech Lead & Software Engineer** at [CESAR](https://www.cesar.org.br/), and **Back-end Developer** at [Ogilvy](https://www.ogilvy.com/), building automation frameworks and scalable APIs in Java and Python.  
 - Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
 
-
-<div align="center">
-
-| ☕ Java / Spring Boot | `██████████` 95%  |
-| 🐘 PostgreSQL | `█████████░` 90%         |
-| 🐍 Python | `████████░░` 80%             |
-| 🐇 RabbitMQ | `███████░░░` 75%           |
-| 🍃 MongoDB | `███████░░░` 70%            |
-| ⚡ Redis | `██████░░░░` 65%               |
-| 💎 Ruby | `█████░░░░░` 55%               |
-| 🟨 JavaScript / TS | `█████░░░░░` 50%    |
-| ☁️ AWS / EKS | `████████░░` 85%          | 
-| 🔁 Airflow + dbt | `███████░░░` 70%      | 
-
-</div>
-
 ---
 
 ### 🏷️ Badges
@@ -52,9 +36,8 @@
 
 ### 🌐 Find me at
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/SEU_LINKEDIN)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:SEU_EMAIL)
-[![Vittude](https://img.shields.io/badge/Vittude-F26522?style=flat-square&logoColor=white)](https://vittude.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/livyson/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:livyson@gmail.com)
 
 
 
