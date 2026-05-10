@@ -10,7 +10,7 @@
 
 ---
 
-### 📈 Linguagens mais usadas
+### 📈 Most used
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SEU_USERNAME&layout=compact&theme=default&hide_border=true&langs_count=6)
 
@@ -24,7 +24,7 @@
 
 ---
 
-### 🌐 Onde me encontrar
+### 🌐 Find me at
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/SEU_LINKEDIN)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:SEU_EMAIL)
