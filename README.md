@@ -8,9 +8,6 @@
 - **Tech Lead & Software Engineer** at [CESAR](https://www.cesar.org.br/), and **Back-end Developer** at [Ogilvy](https://www.ogilvy.com/), building automation frameworks and scalable APIs in Java and Python.  
 - Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
   
-
-### 🏷️ Badges
-
 <div align="center">
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
