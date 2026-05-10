@@ -8,21 +8,16 @@
 - **Tech Lead & Software Engineer** at [CESAR](https://www.cesar.org.br/), and **Back-end Developer** at [Ogilvy](https://www.ogilvy.com/), building automation frameworks and scalable APIs in Java and Python.  
 - Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
 
----
-
-### 📈 Most used
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SEU_USERNAME&layout=compact&theme=default&hide_border=true&langs_count=6)
-
----
 
 ### 📊 GitHub Stats
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SEU_USERNAME&show_icons=true&theme=default&hide_border=true&count_private=true)
+<div align="center">
 
-![Streak](https://github-readme-streak-stats.herokuapp.com?user=SEU_USERNAME&theme=default&hide_border=true&date_format=d%20M%5B%20Y%5D)
+<img height="160" src="https://github-readme-stats.vercel.app/api?username=livyson&show_icons=true&hide_border=true&count_private=true&rank_icon=github" />
+<img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=livyson&layout=compact&hide_border=true&langs_count=6" />
 
----
+</div>
+
 
 ### 🌐 Find me at
 
@@ -30,7 +25,7 @@
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:SEU_EMAIL)
 [![Vittude](https://img.shields.io/badge/Vittude-F26522?style=flat-square&logoColor=white)](https://vittude.com)
 
----
+
 
 ###
 
