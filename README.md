@@ -7,6 +7,8 @@
 - **University IT Professor** at [UNINASSAU](https://www.uninassau.edu.br), teaching Project Management, Software Engineering, and Systems Analysis.  
 - **Tech Lead & Software Engineer** at [CESAR](https://www.cesar.org.br/), and **Back-end Developer** at [Ogilvy](https://www.ogilvy.com/), building automation frameworks and scalable APIs in Java and Python.  
 - Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
+
+<br/>
   
 <div align="center">
 
@@ -30,13 +32,6 @@
 </div>
 
 
-### 🌐 Find me at
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/livyson/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:livyson@gmail.com)
-
-
-
 ###
 
 <picture>
@@ -46,3 +41,9 @@
 </picture>
 
 ###
+
+### 🌐 Find me at
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/livyson/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:livyson@gmail.com)
+
