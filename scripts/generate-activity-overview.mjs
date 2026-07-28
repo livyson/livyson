@@ -122,11 +122,11 @@ function point(cx, cy, radius, angleDeg) {
 }
 
 function buildSvg(counts, percents) {
-  const width = 520;
-  const height = 380;
+  const width = 560;
+  const height = 400;
   const cx = width / 2;
-  const cy = height / 2 + 10;
-  const maxR = 100;
+  const cy = height / 2 + 8;
+  const maxR = 105;
 
   // topo=Code review, direita=Issues, baixo=PRs, esquerda=Commits
   const axes = [
@@ -168,16 +168,21 @@ function buildSvg(counts, percents) {
   const labels = axes
     .map((axis) => {
       const value = percents[axis.key];
-      // Mantém os textos dentro do viewBox (evita cortar "92%" → "2%")
       const labelRadius =
-        axis.angle === 90 || axis.angle === 270 ? maxR + 58 : maxR + 42;
+        axis.angle === 90 || axis.angle === 270 ? maxR + 72 : maxR + 48;
       const labelPos = point(cx, cy, labelRadius, axis.angle);
       const anchor =
         axis.angle === 90 ? "start" : axis.angle === 270 ? "end" : "middle";
-      const dy =
-        axis.angle === 0 ? "-0.2em" : axis.angle === 180 ? "1.2em" : "0.35em";
-      return `<text x="${labelPos.x.toFixed(1)}" y="${labelPos.y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" dy="${dy}" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${value}% ${axis.label}</text>
-<text x="${labelPos.x.toFixed(1)}" y="${(labelPos.y + (axis.angle === 180 ? 18 : axis.angle === 0 ? 14 : 16)).toFixed(1)}" text-anchor="${anchor}" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${axis.count.toLocaleString("en-US")} contributions</text>`;
+
+      // Uma linha principal + subtítulo com tspan (dy relativo, sem sobreposição)
+      let blockY = labelPos.y;
+      if (axis.angle === 0) blockY -= 8;
+      if (axis.angle === 180) blockY += 4;
+
+      return `<text x="${labelPos.x.toFixed(1)}" y="${blockY.toFixed(1)}" text-anchor="${anchor}" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+  <tspan x="${labelPos.x.toFixed(1)}" dy="0">${value}% ${axis.label}</tspan>
+  <tspan x="${labelPos.x.toFixed(1)}" dy="1.35em" fill="#57606a" font-size="12" font-weight="400">${axis.count.toLocaleString("en-US")} contributions</tspan>
+</text>`;
     })
     .join("\n");
 
@@ -191,7 +196,7 @@ function buildSvg(counts, percents) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview for ${counts.year}">
   <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="${cx}" y="28" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
+  <text x="${cx}" y="26" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
   ${rings}
   ${axisLines}
   <polygon points="${polygon}" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
