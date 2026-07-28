@@ -31,6 +31,9 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
 
+      - name: Keep contribution cells permanently visible
+        run: node scripts/keep-pacman-contributions.mjs
+
       - name: Publish pacman SVGs to output without wiping other assets
         run: |
           set -euo pipefail
@@ -44,7 +47,10 @@ jobs:
             )
 
           if [ -d dist ]; then
-            find dist -maxdepth 1 -type f -name '*.svg' ! -name 'activity-overview.svg' -exec cp {} "$TEMP_DIR"/ \;
+            find dist -maxdepth 1 -type f -name '*.svg' \
+              ! -name 'activity-overview.svg' \
+              ! -name 'contribution-graph.svg' \
+              -exec cp {} "$TEMP_DIR"/ \;
           fi
 
           cd "$TEMP_DIR"
