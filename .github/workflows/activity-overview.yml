@@ -11,6 +11,7 @@ on:
     paths:
       - "scripts/generate-activity-overview.mjs"
       - "scripts/generate-contribution-graph.mjs"
+      - "scripts/generate-tech-distribution.mjs"
       - ".github/workflows/activity-overview.yml"
 
 permissions:
@@ -43,6 +44,7 @@ jobs:
           mkdir -p dist
           node scripts/generate-activity-overview.mjs
           node scripts/generate-contribution-graph.mjs
+          node scripts/generate-tech-distribution.mjs
 
       - name: Publish chart SVGs to output
         id: publish
@@ -59,10 +61,11 @@ jobs:
 
           cp dist/activity-overview.svg "$TEMP_DIR/activity-overview.svg"
           cp dist/contribution-graph.svg "$TEMP_DIR/contribution-graph.svg"
+          cp dist/tech-distribution.svg "$TEMP_DIR/tech-distribution.svg"
           cd "$TEMP_DIR"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add activity-overview.svg contribution-graph.svg
+          git add activity-overview.svg contribution-graph.svg tech-distribution.svg
 
           if git diff --cached --quiet; then
             echo "SVG content unchanged"
@@ -92,6 +95,9 @@ jobs:
               ),
               "contribution-graph.svg": re.compile(
                   r"https://(?:raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/contribution-graph\.svg(?:\?[^\"'\s]*)?|github-readme-activity-graph\.vercel\.app/graph\?[^\"]+)"
+              ),
+              "tech-distribution.svg": re.compile(
+                  r"https://raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/tech-distribution\.svg(?:\?[^\"'\s]*)?"
               ),
           }
           updated = text

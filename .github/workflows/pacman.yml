@@ -51,6 +51,7 @@ jobs:
             find dist -maxdepth 1 -type f -name '*.svg' \
               ! -name 'activity-overview.svg' \
               ! -name 'contribution-graph.svg' \
+              ! -name 'tech-distribution.svg' \
               -exec cp {} "$TEMP_DIR"/ \;
           fi
 

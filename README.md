@@ -55,6 +55,16 @@
 
 <br/>
 
+### 🍕 Tech Distribution
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/livyson/livyson/output/tech-distribution.svg" width="900" alt="technology distribution pie chart" />
+
+</div>
+
+<br/>
+
 ### 🛠️ Tech Stack
 
 <div align="center">
