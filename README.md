@@ -16,7 +16,7 @@
 
 ---
 
-### 👨‍💻 About me
+### 👨🏾‍💻 About me
 
 - 🚀 **Head of Engineering & Product** at [Vittude](https://vittude.com/), leading the strategy for product and engineering areas.
 - 🛡️ **Head of Technology** at [idwall](https://www.idwall.co), leading an area, aligning tech strategy, and boosting operational efficiency by over **77.41%**.
