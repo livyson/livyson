@@ -120,6 +120,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore: refresh profile chart cache [skip ci]"
+          git pull --rebase origin main
           git push
         env:
           SHA: ${{ steps.publish.outputs.sha }}
