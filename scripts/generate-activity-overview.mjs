@@ -169,20 +169,18 @@ function buildSvg(counts, percents) {
     .map((axis) => {
       const value = percents[axis.key];
       const labelRadius =
-        axis.angle === 90 || axis.angle === 270 ? maxR + 72 : maxR + 48;
+        axis.angle === 90 || axis.angle === 270 ? maxR + 78 : maxR + 52;
       const labelPos = point(cx, cy, labelRadius, axis.angle);
       const anchor =
         axis.angle === 90 ? "start" : axis.angle === 270 ? "end" : "middle";
 
-      // Uma linha principal + subtítulo com tspan (dy relativo, sem sobreposição)
-      let blockY = labelPos.y;
-      if (axis.angle === 0) blockY -= 8;
-      if (axis.angle === 180) blockY += 4;
+      let y = labelPos.y;
+      if (axis.angle === 0) y -= 6;
+      if (axis.angle === 180) y += 18;
 
-      return `<text x="${labelPos.x.toFixed(1)}" y="${blockY.toFixed(1)}" text-anchor="${anchor}" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
-  <tspan x="${labelPos.x.toFixed(1)}" dy="0">${value}% ${axis.label}</tspan>
-  <tspan x="${labelPos.x.toFixed(1)}" dy="1.35em" fill="#57606a" font-size="12" font-weight="400">${axis.count.toLocaleString("en-US")} contributions</tspan>
-</text>`;
+      // Uma única linha por eixo — evita qualquer sobreposição
+      const line = `${value}% ${axis.label} (${axis.count.toLocaleString("en-US")})`;
+      return `<text x="${labelPos.x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" fill="#24292f" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${line}</text>`;
     })
     .join("\n");
 
