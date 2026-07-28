@@ -10,6 +10,7 @@ on:
       - main
     paths:
       - "scripts/generate-activity-overview.mjs"
+      - "scripts/generate-contribution-graph.mjs"
       - ".github/workflows/activity-overview.yml"
 
 permissions:
@@ -34,15 +35,16 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Generate activity-overview.svg
+      - name: Generate profile chart SVGs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.repository_owner }}
         run: |
           mkdir -p dist
           node scripts/generate-activity-overview.mjs
+          node scripts/generate-contribution-graph.mjs
 
-      - name: Publish activity-overview.svg to output
+      - name: Publish chart SVGs to output
         id: publish
         run: |
           set -euo pipefail
@@ -56,16 +58,17 @@ jobs:
             )
 
           cp dist/activity-overview.svg "$TEMP_DIR/activity-overview.svg"
+          cp dist/contribution-graph.svg "$TEMP_DIR/contribution-graph.svg"
           cd "$TEMP_DIR"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add activity-overview.svg
+          git add activity-overview.svg contribution-graph.svg
 
           if git diff --cached --quiet; then
             echo "SVG content unchanged"
             SHA="$(git rev-parse HEAD)"
           else
-            git commit -m "Update activity-overview.svg"
+            git commit -m "Update profile chart SVGs"
             git push -u origin HEAD:output
             SHA="$(git rev-parse HEAD)"
           fi
@@ -77,26 +80,31 @@ jobs:
         run: |
           set -euo pipefail
           SHA="${{ steps.publish.outputs.sha }}"
-          # raw.githubusercontent.com cacheia por path e IGNORA ?v= —
-          # usar o SHA do commit muda o path e força conteúdo novo.
           python3 - <<'PY'
           from pathlib import Path
           import os, re
           sha = os.environ["SHA"]
           path = Path("README.md")
           text = path.read_text(encoding="utf-8")
-          pattern = re.compile(
-              r"https://raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/activity-overview\.svg(?:\?[^\"'\s]*)?"
-          )
-          replacement = f"https://raw.githubusercontent.com/livyson/livyson/{sha}/activity-overview.svg"
-          updated, count = pattern.subn(replacement, text)
-          if count == 0:
-              raise SystemExit("activity-overview.svg URL not found in README.md")
+          replacements = {
+              "activity-overview.svg": re.compile(
+                  r"https://raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/activity-overview\.svg(?:\?[^\"'\s]*)?"
+              ),
+              "contribution-graph.svg": re.compile(
+                  r"https://(?:raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/contribution-graph\.svg(?:\?[^\"'\s]*)?|github-readme-activity-graph\.vercel\.app/graph\?[^\"]+)"
+              ),
+          }
+          updated = text
+          for filename, pattern in replacements.items():
+              url = f"https://raw.githubusercontent.com/livyson/livyson/{sha}/{filename}"
+              updated, count = pattern.subn(url, updated)
+              if count == 0:
+                  raise SystemExit(f"{filename} URL not found in README.md")
+              print(f"README {filename} -> {sha} ({count} match)")
           if updated == text:
               print(f"README already points to {sha}")
           else:
               path.write_text(updated, encoding="utf-8")
-              print(f"README image URL set to commit {sha}")
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -105,7 +113,7 @@ jobs:
             echo "No README changes"
             exit 0
           fi
-          git commit -m "chore: refresh activity overview cache [skip ci]"
+          git commit -m "chore: refresh profile chart cache [skip ci]"
           git push
         env:
           SHA: ${{ steps.publish.outputs.sha }}

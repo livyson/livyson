@@ -45,7 +45,7 @@
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=livyson&bg_color=0d1117&color=fdba74&line=f97316&point=ea580c&area_color=f97316&area=true&hide_border=true&custom_title=Contribution%20Graph" width="100%" alt="activity graph" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/output/contribution-graph.svg" width="100%" alt="biweekly contribution graph" />
 
 <br/>
 
