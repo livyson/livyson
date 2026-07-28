@@ -1,48 +1,45 @@
-name: Generate pacman animation
+name: Generate activity overview
 
 on:
   schedule:
-    # executa a cada 12 horas (meia-noite e meio-dia UTC)
-    - cron: "0 */12 * * *"
-
+    - cron: "0 6 * * *"
   workflow_dispatch:
-
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   generate:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Preserve existing output branch files
         run: |
-          mkdir -p /tmp/output-preserve
+          mkdir -p dist /tmp/output-preserve
           git fetch origin output:output || true
           if git show-ref --verify --quiet refs/heads/output; then
             git archive output | tar -x -C /tmp/output-preserve || true
+            cp -a /tmp/output-preserve/. dist/ || true
           fi
 
-      - name: generate pacman-contribution-graph.svg
-        uses: abozanona/pacman-contribution-graph@main
-        with:
-          github_user_name: ${{ github.repository_owner }}
+      - name: Generate activity-overview.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.repository_owner }}
+        run: node scripts/generate-activity-overview.mjs
 
-      - name: Merge preserved files into dist
-        run: |
-          mkdir -p dist
-          if [ -d /tmp/output-preserve ]; then
-            cp -an /tmp/output-preserve/. dist/ || true
-          fi
-
-      - name: push pacman-contribution-graph.svg to the output branch
+      - name: Push SVG to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
