@@ -2,15 +2,15 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6C5CE7&height=200&section=header&text=Hello,%20I'm%20Livyson!%20🚀&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" alt="header" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F97316&height=200&section=header&text=Hello,%20I'm%20Livyson!%20🚀&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" alt="header" />
 
 <a href="https://github.com/livyson">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6C5CE7&center=true&vCenter=true&width=650&lines=Head+of+Engineering+%26+Product;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams" alt="typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=F97316&center=true&vCenter=true&width=650&lines=Head+of+Engineering+%26+Product;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams" alt="typing" />
 </a>
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=livyson&label=Profile%20views&color=6c5ce7&style=flat" alt="profile views" />
+<img src="https://komarev.com/ghpvc/?username=livyson&label=Profile%20views&color=f97316&style=flat" alt="profile views" />
 
 </div>
 
@@ -45,7 +45,7 @@
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=livyson&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20Graph" width="100%" alt="activity graph" />
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=livyson&bg_color=0d1117&color=fdba74&line=f97316&point=ea580c&area_color=f97316&area=true&hide_border=true&custom_title=Contribution%20Graph" width="100%" alt="activity graph" />
 
 <br/>
 
@@ -100,4 +100,4 @@
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=6C5CE7&height=120&section=footer" width="100%" alt="footer" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F97316&height=120&section=footer" width="100%" alt="footer" />

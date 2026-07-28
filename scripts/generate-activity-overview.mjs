@@ -150,7 +150,7 @@ function buildSvg(counts, percents) {
   const axisLines = axes
     .map((axis) => {
       const end = point(cx, cy, maxR, axis.angle);
-      return `<line x1="${cx}" y1="${cy}" x2="${end.x.toFixed(1)}" y2="${end.y.toFixed(1)}" stroke="#216e39" stroke-width="1.5" />`;
+      return `<line x1="${cx}" y1="${cy}" x2="${end.x.toFixed(1)}" y2="${end.y.toFixed(1)}" stroke="#ea580c" stroke-width="1.5" />`;
     })
     .join("\n");
 
@@ -162,7 +162,7 @@ function buildSvg(counts, percents) {
           return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
         })
         .join(" ");
-      return `<polygon points="${pts}" fill="none" stroke="#d0e6d5" stroke-width="1" />`;
+      return `<polygon points="${pts}" fill="none" stroke="#fed7aa" stroke-width="1" />`;
     })
     .join("\n");
 
@@ -199,7 +199,7 @@ function buildSvg(counts, percents) {
   const dots = dataPoints
     .map(
       (p) =>
-        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />`,
+        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="#ffffff" stroke="#ea580c" stroke-width="2" />`,
     )
     .join("\n");
 
@@ -209,7 +209,7 @@ function buildSvg(counts, percents) {
   <text x="${cx}" y="26" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
   ${rings}
   ${axisLines}
-  <polygon points="${polygon}" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="${polygon}" fill="rgba(249, 115, 22, 0.28)" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
   ${dots}
   ${labels}
 </svg>
