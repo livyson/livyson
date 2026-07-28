@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420" height="320" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <polygon points="210.0,136.7 241.3,168.0 210.0,199.3 178.7,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+<polygon points="210.0,105.3 272.7,168.0 210.0,230.7 147.3,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+<polygon points="210.0,73.0 305.0,168.0 210.0,263.0 115.0,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+  <line x1="210" y1="168" x2="210.0" y2="73.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="305.0" y2="168.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="210.0" y2="263.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="115.0" y2="168.0" stroke="#216e39" stroke-width="1.5" />
+  <polygon points="210.0,166.1 211.9,168.0 210.0,171.8 122.6,168.0" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
+  <circle cx="210.0" cy="166.1" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="211.9" cy="168.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="210.0" cy="171.8" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="122.6" cy="168.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+  <text x="210.0" y="39.0" text-anchor="middle" dominant-baseline="middle" dy="-0.2em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Code review</text>
+<text x="339.0" y="168.0" text-anchor="start" dominant-baseline="middle" dy="0.35em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Issues</text>
+<text x="210.0" y="297.0" text-anchor="middle" dominant-baseline="middle" dy="1.1em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">4% Pull requests</text>
+<text x="81.0" y="168.0" text-anchor="end" dominant-baseline="middle" dy="0.35em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">92% Commits</text>
+</svg>
