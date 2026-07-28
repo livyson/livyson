@@ -2,11 +2,15 @@ name: Generate activity overview
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    # A cada 6 horas (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: "0 */6 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
+    paths:
+      - "scripts/generate-activity-overview.mjs"
+      - ".github/workflows/activity-overview.yml"
 
 permissions:
   contents: write
@@ -22,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -36,7 +42,8 @@ jobs:
           mkdir -p dist
           node scripts/generate-activity-overview.mjs
 
-      - name: Publish only activity-overview.svg to output
+      - name: Publish activity-overview.svg to output
+        id: publish
         run: |
           set -euo pipefail
           TEMP_DIR=$(mktemp -d)
@@ -53,11 +60,52 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add activity-overview.svg
+
+          VERSION="$(date -u +%Y%m%d%H%M)"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
           if git diff --cached --quiet; then
-            echo "No changes to activity-overview.svg"
-            exit 0
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "SVG content unchanged; still refreshing README cache buster."
+          else
+            git commit -m "Update activity-overview.svg"
+            git push -u origin HEAD:output
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
-          git commit -m "Update activity-overview.svg"
-          git push -u origin HEAD:output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Refresh README image cache buster
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.publish.outputs.version }}"
+          # Mantém a URL estável e só troca o query param para furar cache do Camo/CDN
+          python3 - <<'PY'
+          from pathlib import Path
+          import os, re
+          version = os.environ["VERSION"]
+          path = Path("README.md")
+          text = path.read_text(encoding="utf-8")
+          pattern = re.compile(
+              r"(https://raw\.githubusercontent\.com/livyson/livyson/output/activity-overview\.svg)(?:\?v=[0-9]+)?"
+          )
+          updated, count = pattern.subn(rf"\1?v={version}", text)
+          if count == 0:
+              raise SystemExit("activity-overview.svg URL not found in README.md")
+          if updated == text:
+              print("README cache buster already up to date")
+          else:
+              path.write_text(updated, encoding="utf-8")
+              print(f"README cache buster set to v={version}")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "No README changes"
+            exit 0
+          fi
+          git commit -m "chore: refresh activity overview cache [skip ci]"
+          git push
+        env:
+          VERSION: ${{ steps.publish.outputs.version }}
