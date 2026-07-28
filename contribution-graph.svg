@@ -2,7 +2,7 @@
 <svg width="900" height="320" viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Biweekly contribution graph for 2026">
   <rect width="100%" height="100%" rx="8" fill="#ffffff"/>
   <text x="450" y="28" text-anchor="middle" fill="#ea580c" font-size="16" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Contribution Graph · biweekly (15 days) · 2026</text>
-  <text x="450" y="46" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">487 contributions total</text>
+  <text x="450" y="46" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">488 contributions total</text>
   
         <line x1="48" y1="272.0" x2="872" y2="272.0" stroke="#e5e7eb" stroke-width="1" />
         <text x="38" y="276.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0</text>
@@ -14,27 +14,27 @@
         <text x="38" y="164.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">50</text>
       
         <line x1="48" y1="104.0" x2="872" y2="104.0" stroke="#e5e7eb" stroke-width="1" />
-        <text x="38" y="108.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">74</text>
+        <text x="38" y="108.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">75</text>
       
         <line x1="48" y1="48.0" x2="872" y2="48.0" stroke="#e5e7eb" stroke-width="1" />
-        <text x="38" y="52.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">99</text>
+        <text x="38" y="52.0" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">100</text>
       
-  <path d="M48.0,195.1 L111.4,201.9 L174.8,204.1 L238.2,204.1 L301.5,201.9 L364.9,204.1 L428.3,163.4 L491.7,204.1 L555.1,188.3 L618.5,272.0 L681.8,195.1 L745.2,220.0 L808.6,204.1 L872.0,48.0 L872.0,272.0 L48.0,272.0 Z" fill="rgba(249, 115, 22, 0.22)" />
-  <path d="M48.0,195.1 L111.4,201.9 L174.8,204.1 L238.2,204.1 L301.5,201.9 L364.9,204.1 L428.3,163.4 L491.7,204.1 L555.1,188.3 L618.5,272.0 L681.8,195.1 L745.2,220.0 L808.6,204.1 L872.0,48.0" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
-  <circle cx="48.0" cy="195.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 1 – Jan 15: 34 contributions</title></circle>
-<circle cx="111.4" cy="201.9" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 16 – Jan 30: 31 contributions</title></circle>
-<circle cx="174.8" cy="204.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 31 – Feb 14: 30 contributions</title></circle>
-<circle cx="238.2" cy="204.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Feb 15 – Mar 1: 30 contributions</title></circle>
-<circle cx="301.5" cy="201.9" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Mar 2 – Mar 16: 31 contributions</title></circle>
-<circle cx="364.9" cy="204.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Mar 17 – Mar 31: 30 contributions</title></circle>
-<circle cx="428.3" cy="163.4" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Apr 1 – Apr 15: 48 contributions</title></circle>
-<circle cx="491.7" cy="204.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Apr 16 – Apr 30: 30 contributions</title></circle>
-<circle cx="555.1" cy="188.3" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>May 1 – May 15: 37 contributions</title></circle>
+  <path d="M48.0,195.8 L111.4,202.6 L174.8,204.8 L238.2,204.8 L301.5,202.6 L364.9,204.8 L428.3,164.5 L491.7,204.8 L555.1,189.1 L618.5,272.0 L681.8,195.8 L745.2,220.5 L808.6,204.8 L872.0,48.0 L872.0,272.0 L48.0,272.0 Z" fill="rgba(249, 115, 22, 0.22)" />
+  <path d="M48.0,195.8 L111.4,202.6 L174.8,204.8 L238.2,204.8 L301.5,202.6 L364.9,204.8 L428.3,164.5 L491.7,204.8 L555.1,189.1 L618.5,272.0 L681.8,195.8 L745.2,220.5 L808.6,204.8 L872.0,48.0" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
+  <circle cx="48.0" cy="195.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 1 – Jan 15: 34 contributions</title></circle>
+<circle cx="111.4" cy="202.6" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 16 – Jan 30: 31 contributions</title></circle>
+<circle cx="174.8" cy="204.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jan 31 – Feb 14: 30 contributions</title></circle>
+<circle cx="238.2" cy="204.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Feb 15 – Mar 1: 30 contributions</title></circle>
+<circle cx="301.5" cy="202.6" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Mar 2 – Mar 16: 31 contributions</title></circle>
+<circle cx="364.9" cy="204.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Mar 17 – Mar 31: 30 contributions</title></circle>
+<circle cx="428.3" cy="164.5" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Apr 1 – Apr 15: 48 contributions</title></circle>
+<circle cx="491.7" cy="204.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Apr 16 – Apr 30: 30 contributions</title></circle>
+<circle cx="555.1" cy="189.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>May 1 – May 15: 37 contributions</title></circle>
 <circle cx="618.5" cy="272.0" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>May 16 – May 30: 0 contributions</title></circle>
-<circle cx="681.8" cy="195.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>May 31 – Jun 14: 34 contributions</title></circle>
-<circle cx="745.2" cy="220.0" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jun 15 – Jun 29: 23 contributions</title></circle>
-<circle cx="808.6" cy="204.1" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jun 30 – Jul 14: 30 contributions</title></circle>
-<circle cx="872.0" cy="48.0" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jul 15 – Jul 29: 99 contributions</title></circle>
+<circle cx="681.8" cy="195.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>May 31 – Jun 14: 34 contributions</title></circle>
+<circle cx="745.2" cy="220.5" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jun 15 – Jun 29: 23 contributions</title></circle>
+<circle cx="808.6" cy="204.8" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jun 30 – Jul 14: 30 contributions</title></circle>
+<circle cx="872.0" cy="48.0" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>Jul 15 – Jul 29: 100 contributions</title></circle>
   <text x="48.0" y="302" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Jan 1</text>
 <text x="174.8" y="302" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Jan 31</text>
 <text x="301.5" y="302" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Mar 2</text>
