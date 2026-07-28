@@ -27,6 +27,30 @@
 
 <br/>
 
+### 🎮 Contribution Pac-Man
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph.svg">
+</picture>
+
+</div>
+
+<br/>
+
+### 📊 GitHub Stats
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=livyson&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20Graph" width="100%" alt="activity graph" />
+
+</div>
+
+<br/>
+
 ### 🛠️ Tech Stack
 
 <div align="center">
@@ -58,43 +82,6 @@
 **Cloud & DevOps**
 
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black)
-
-</div>
-
-<br/>
-
-### 📊 GitHub Stats
-
-<div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=livyson&show_icons=true&count_private=true&include_all_commits=true&theme=tokyonight&hide_border=true&rank_icon=github&cache_seconds=86400" alt="stats graph" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=livyson&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="languages graph" />
-
-<br/>
-
-<img src="https://streak-stats.demolab.com?user=livyson&theme=tokyonight&hide_border=true&cache_seconds=86400" alt="streak stats" />
-
-<br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=livyson&theme=tokyo-night&hide_border=true&area=true&custom_title=Contribution%20Graph" width="100%" alt="activity graph" />
-
-<br/>
-
-<img src="https://github-profile-trophy.vercel.app/?username=livyson&theme=tokyonight&no-frame=true&no-bg=true&column=7&margin-w=4" width="100%" alt="trophies" />
-
-</div>
-
-<br/>
-
-### 🎮 Contribution Pac-Man
-
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph.svg">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/livyson/livyson/output/pacman-contribution-graph.svg">
-</picture>
 
 </div>
 
