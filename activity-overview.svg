@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="520" height="380" viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview for 2026">
+<svg width="420" height="320" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview">
   <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="260" y="28" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · 2026 · 254 total</text>
-  <polygon points="260.0,175.0 285.0,200.0 260.0,225.0 235.0,200.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
-<polygon points="260.0,150.0 310.0,200.0 260.0,250.0 210.0,200.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
-<polygon points="260.0,125.0 335.0,200.0 260.0,275.0 185.0,200.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
-<polygon points="260.0,100.0 360.0,200.0 260.0,300.0 160.0,200.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
-  <line x1="260" y1="200" x2="260.0" y2="100.0" stroke="#216e39" stroke-width="1.5" />
-<line x1="260" y1="200" x2="360.0" y2="200.0" stroke="#216e39" stroke-width="1.5" />
-<line x1="260" y1="200" x2="260.0" y2="300.0" stroke="#216e39" stroke-width="1.5" />
-<line x1="260" y1="200" x2="160.0" y2="200.0" stroke="#216e39" stroke-width="1.5" />
-  <polygon points="260.0,198.0 262.0,200.0 260.0,203.0 167.0,200.0" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
-  <circle cx="260.0" cy="198.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
-<circle cx="262.0" cy="200.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
-<circle cx="260.0" cy="203.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
-<circle cx="167.0" cy="200.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
-  <text x="260.0" y="58.0" text-anchor="middle" dominant-baseline="middle" dy="-0.2em" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Code review</text>
-<text x="260.0" y="72.0" text-anchor="middle" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">5 contributions</text>
-<text x="418.0" y="200.0" text-anchor="start" dominant-baseline="middle" dy="0.35em" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Issues</text>
-<text x="418.0" y="216.0" text-anchor="start" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">6 contributions</text>
-<text x="260.0" y="342.0" text-anchor="middle" dominant-baseline="middle" dy="1.2em" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">3% Pull requests</text>
-<text x="260.0" y="360.0" text-anchor="middle" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">6 contributions</text>
-<text x="102.0" y="200.0" text-anchor="end" dominant-baseline="middle" dy="0.35em" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">93% Commits</text>
-<text x="102.0" y="216.0" text-anchor="end" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">237 contributions</text>
+  <polygon points="210.0,136.7 241.3,168.0 210.0,199.3 178.7,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+<polygon points="210.0,105.3 272.7,168.0 210.0,230.7 147.3,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+<polygon points="210.0,73.0 305.0,168.0 210.0,263.0 115.0,168.0" fill="none" stroke="#d0e6d5" stroke-width="1" />
+  <line x1="210" y1="168" x2="210.0" y2="73.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="305.0" y2="168.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="210.0" y2="263.0" stroke="#216e39" stroke-width="1.5" />
+<line x1="210" y1="168" x2="115.0" y2="168.0" stroke="#216e39" stroke-width="1.5" />
+  <polygon points="210.0,166.1 211.9,168.0 210.0,171.8 122.6,168.0" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
+  <circle cx="210.0" cy="166.1" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="211.9" cy="168.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="210.0" cy="171.8" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+<circle cx="122.6" cy="168.0" r="5" fill="#ffffff" stroke="#216e39" stroke-width="2" />
+  <text x="210.0" y="39.0" text-anchor="middle" dominant-baseline="middle" dy="-0.2em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Code review</text>
+<text x="339.0" y="168.0" text-anchor="start" dominant-baseline="middle" dy="0.35em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">2% Issues</text>
+<text x="210.0" y="297.0" text-anchor="middle" dominant-baseline="middle" dy="1.1em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">4% Pull requests</text>
+<text x="81.0" y="168.0" text-anchor="end" dominant-baseline="middle" dy="0.35em" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">92% Commits</text>
 </svg>
