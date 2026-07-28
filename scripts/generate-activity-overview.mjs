@@ -16,9 +16,9 @@ if (!token) {
 }
 
 const query = `
-  query($login: String!) {
+  query($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
-      contributionsCollection {
+      contributionsCollection(from: $from, to: $to) {
         totalCommitContributions
         totalIssueContributions
         totalPullRequestContributions
@@ -28,7 +28,18 @@ const query = `
   }
 `;
 
+function yearWindow() {
+  const now = new Date();
+  const year = now.getUTCFullYear();
+  return {
+    from: `${year}-01-01T00:00:00.000Z`,
+    to: now.toISOString(),
+    year,
+  };
+}
+
 async function fetchContributions() {
+  const { from, to, year } = yearWindow();
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
@@ -36,7 +47,10 @@ async function fetchContributions() {
       "Content-Type": "application/json",
       "User-Agent": "livyson-activity-overview",
     },
-    body: JSON.stringify({ query, variables: { login: username } }),
+    body: JSON.stringify({
+      query,
+      variables: { login: username, from, to },
+    }),
   });
 
   const payload = await res.json();
@@ -48,6 +62,7 @@ async function fetchContributions() {
 
   const c = payload.data.user.contributionsCollection;
   return {
+    year,
     commits: c.totalCommitContributions || 0,
     pullRequests: c.totalPullRequestContributions || 0,
     issues: c.totalIssueContributions || 0,
@@ -56,39 +71,46 @@ async function fetchContributions() {
 }
 
 function toPercents(counts) {
-  const total =
-    counts.commits + counts.pullRequests + counts.issues + counts.codeReview;
+  const entries = [
+    ["commits", counts.commits],
+    ["pullRequests", counts.pullRequests],
+    ["issues", counts.issues],
+    ["codeReview", counts.codeReview],
+  ];
+  const total = entries.reduce((sum, [, value]) => sum + value, 0);
   if (total === 0) {
     return {
       commits: 0,
       pullRequests: 0,
       issues: 0,
       codeReview: 0,
+      total: 0,
     };
   }
 
-  const raw = {
-    commits: (counts.commits / total) * 100,
-    pullRequests: (counts.pullRequests / total) * 100,
-    issues: (counts.issues / total) * 100,
-    codeReview: (counts.codeReview / total) * 100,
-  };
+  // Largest remainder method — soma sempre 100
+  const raw = entries.map(([key, value]) => {
+    const exact = (value / total) * 100;
+    return { key, exact, base: Math.floor(exact), frac: exact - Math.floor(exact) };
+  });
+  let remaining = 100 - raw.reduce((sum, item) => sum + item.base, 0);
+  raw
+    .slice()
+    .sort((a, b) => b.frac - a.frac)
+    .forEach((item) => {
+      if (remaining > 0) {
+        item.base += 1;
+        remaining -= 1;
+      }
+    });
 
-  // Arredonda preservando soma ~100
-  const rounded = {
-    commits: Math.round(raw.commits),
-    pullRequests: Math.round(raw.pullRequests),
-    issues: Math.round(raw.issues),
-    codeReview: Math.round(raw.codeReview),
+  return {
+    commits: raw.find((item) => item.key === "commits").base,
+    pullRequests: raw.find((item) => item.key === "pullRequests").base,
+    issues: raw.find((item) => item.key === "issues").base,
+    codeReview: raw.find((item) => item.key === "codeReview").base,
+    total,
   };
-  const drift =
-    100 -
-    (rounded.commits +
-      rounded.pullRequests +
-      rounded.issues +
-      rounded.codeReview);
-  rounded.commits += drift;
-  return rounded;
 }
 
 function point(cx, cy, radius, angleDeg) {
@@ -99,29 +121,30 @@ function point(cx, cy, radius, angleDeg) {
   };
 }
 
-function buildSvg(percents) {
-  const width = 420;
-  const height = 320;
+function buildSvg(counts, percents) {
+  const width = 520;
+  const height = 380;
   const cx = width / 2;
-  const cy = height / 2 + 8;
-  const maxR = 95;
+  const cy = height / 2 + 10;
+  const maxR = 100;
 
-  // Ordem igual ao Activity Overview do GitHub:
   // topo=Code review, direita=Issues, baixo=PRs, esquerda=Commits
   const axes = [
-    { key: "codeReview", label: "Code review", angle: 0 },
-    { key: "issues", label: "Issues", angle: 90 },
-    { key: "pullRequests", label: "Pull requests", angle: 180 },
-    { key: "commits", label: "Commits", angle: 270 },
+    { key: "codeReview", label: "Code review", angle: 0, count: counts.codeReview },
+    { key: "issues", label: "Issues", angle: 90, count: counts.issues },
+    { key: "pullRequests", label: "Pull requests", angle: 180, count: counts.pullRequests },
+    { key: "commits", label: "Commits", angle: 270, count: counts.commits },
   ];
 
   const dataPoints = axes.map((axis) => {
     const value = percents[axis.key];
-    const r = (Math.max(value, 2) / 100) * maxR;
+    const r = (value / 100) * maxR;
     return { ...axis, value, ...point(cx, cy, r, axis.angle) };
   });
 
-  const polygon = dataPoints.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+  const polygon = dataPoints
+    .map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`)
+    .join(" ");
 
   const axisLines = axes
     .map((axis) => {
@@ -130,7 +153,7 @@ function buildSvg(percents) {
     })
     .join("\n");
 
-  const rings = [0.33, 0.66, 1]
+  const rings = [0.25, 0.5, 0.75, 1]
     .map((scale) => {
       const pts = axes
         .map((axis) => {
@@ -145,12 +168,16 @@ function buildSvg(percents) {
   const labels = axes
     .map((axis) => {
       const value = percents[axis.key];
-      const labelPos = point(cx, cy, maxR + 34, axis.angle);
+      // Mantém os textos dentro do viewBox (evita cortar "92%" → "2%")
+      const labelRadius =
+        axis.angle === 90 || axis.angle === 270 ? maxR + 58 : maxR + 42;
+      const labelPos = point(cx, cy, labelRadius, axis.angle);
       const anchor =
         axis.angle === 90 ? "start" : axis.angle === 270 ? "end" : "middle";
       const dy =
-        axis.angle === 0 ? "-0.2em" : axis.angle === 180 ? "1.1em" : "0.35em";
-      return `<text x="${labelPos.x.toFixed(1)}" y="${labelPos.y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" dy="${dy}" fill="#57606a" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${value}% ${axis.label}</text>`;
+        axis.angle === 0 ? "-0.2em" : axis.angle === 180 ? "1.2em" : "0.35em";
+      return `<text x="${labelPos.x.toFixed(1)}" y="${labelPos.y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" dy="${dy}" fill="#24292f" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${value}% ${axis.label}</text>
+<text x="${labelPos.x.toFixed(1)}" y="${(labelPos.y + (axis.angle === 180 ? 18 : axis.angle === 0 ? 14 : 16)).toFixed(1)}" text-anchor="${anchor}" fill="#57606a" font-size="12" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${axis.count.toLocaleString("en-US")} contributions</text>`;
     })
     .join("\n");
 
@@ -162,8 +189,9 @@ function buildSvg(percents) {
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview">
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview for ${counts.year}">
   <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="${cx}" y="28" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
   ${rings}
   ${axisLines}
   <polygon points="${polygon}" fill="rgba(57, 163, 75, 0.28)" stroke="#216e39" stroke-width="2" stroke-linejoin="round" />
@@ -179,7 +207,7 @@ async function main() {
   console.log("Counts:", counts);
   console.log("Percents:", percents);
 
-  const svg = buildSvg(percents);
+  const svg = buildSvg(counts, percents);
   const distDir = path.join(process.cwd(), "dist");
   fs.mkdirSync(distDir, { recursive: true });
   const outPath = path.join(distDir, "activity-overview.svg");
