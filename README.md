@@ -45,11 +45,11 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/f8086f47629c6223f2ec20b1a14a95c41434c5ff/contribution-graph.svg" width="100%" alt="biweekly contribution graph" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/839eb50ab1e4c426c4789b23924d4dc0700aeffb/contribution-graph.svg" width="100%" alt="biweekly contribution graph" />
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/f8086f47629c6223f2ec20b1a14a95c41434c5ff/activity-overview.svg" width="580" alt="activity overview" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/839eb50ab1e4c426c4789b23924d4dc0700aeffb/activity-overview.svg" width="580" alt="activity overview" />
 
 </div>
 
