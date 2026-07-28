@@ -49,7 +49,7 @@
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/output/activity-overview.svg" width="580" alt="activity overview" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/f543e935a0157b4bce92394a2ab8071349275325/activity-overview.svg" width="580" alt="activity overview" />
 
 </div>
 
