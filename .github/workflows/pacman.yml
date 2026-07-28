@@ -11,6 +11,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: output-branch-assets
+  cancel-in-progress: false
+
 jobs:
   generate:
     permissions:
@@ -22,31 +26,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Preserve existing output branch files
-        run: |
-          mkdir -p /tmp/output-preserve
-          git fetch origin output:output || true
-          if git show-ref --verify --quiet refs/heads/output; then
-            git archive output | tar -x -C /tmp/output-preserve || true
-          fi
-
       - name: generate pacman-contribution-graph.svg
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: ${{ github.repository_owner }}
 
-      - name: Merge preserved files into dist
+      - name: Publish pacman SVGs to output without wiping other assets
         run: |
-          mkdir -p dist
-          if [ -d /tmp/output-preserve ]; then
-            cp -an /tmp/output-preserve/. dist/ || true
+          set -euo pipefail
+          TEMP_DIR=$(mktemp -d)
+          git clone --depth 1 --branch output "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$TEMP_DIR" \
+            || (
+              git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$TEMP_DIR"
+              cd "$TEMP_DIR"
+              git checkout --orphan output
+              git rm -rf . >/dev/null 2>&1 || true
+            )
+
+          if [ -d dist ]; then
+            find dist -maxdepth 1 -type f -name '*.svg' ! -name 'activity-overview.svg' -exec cp {} "$TEMP_DIR"/ \;
           fi
 
-      - name: push pacman-contribution-graph.svg to the output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output
-          build_dir: dist
-          keep_history: true
+          cd "$TEMP_DIR"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add *.svg || true
+          if git diff --cached --quiet; then
+            echo "No pacman svg changes"
+            exit 0
+          fi
+          git commit -m "Update pacman contribution graphs"
+          git push -u origin HEAD:output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

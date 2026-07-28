@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: output-branch-assets
+  cancel-in-progress: false
+
 jobs:
   generate:
     runs-on: ubuntu-latest
@@ -24,26 +28,36 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Preserve existing output branch files
-        run: |
-          mkdir -p dist /tmp/output-preserve
-          git fetch origin output:output || true
-          if git show-ref --verify --quiet refs/heads/output; then
-            git archive output | tar -x -C /tmp/output-preserve || true
-            cp -a /tmp/output-preserve/. dist/ || true
-          fi
-
       - name: Generate activity-overview.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.repository_owner }}
-        run: node scripts/generate-activity-overview.mjs
+        run: |
+          mkdir -p dist
+          node scripts/generate-activity-overview.mjs
 
-      - name: Push SVG to output branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: output
-          build_dir: dist
-          keep_history: true
+      - name: Publish only activity-overview.svg to output
+        run: |
+          set -euo pipefail
+          TEMP_DIR=$(mktemp -d)
+          git clone --depth 1 --branch output "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$TEMP_DIR" \
+            || (
+              git clone --depth 1 "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$TEMP_DIR"
+              cd "$TEMP_DIR"
+              git checkout --orphan output
+              git rm -rf . >/dev/null 2>&1 || true
+            )
+
+          cp dist/activity-overview.svg "$TEMP_DIR/activity-overview.svg"
+          cd "$TEMP_DIR"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add activity-overview.svg
+          if git diff --cached --quiet; then
+            echo "No changes to activity-overview.svg"
+            exit 0
+          fi
+          git commit -m "Update activity-overview.svg"
+          git push -u origin HEAD:output
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
