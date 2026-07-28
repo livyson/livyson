@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 /**
- * Gera gráfico de pizza (donut) com distribuição de linguagens
+ * Gera gráfico de pizza (donut) com distribuição de tecnologias
  * agregada dos repositórios do usuário.
+ *
+ * Além das linguagens do GitHub Linguist, inclui:
+ * - MySQL  → arquivos *.sql (Linguist marca SQL como "data" e não entra nas stats)
+ * - NoSQL  → scripts Mongo em queries/nosql/*.js (senão viram só JavaScript)
  */
 
 import fs from "node:fs";
@@ -31,8 +35,17 @@ const query = `
           endCursor
         }
         nodes {
+          name
           isArchived
-          languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
+          defaultBranchRef {
+            name
+            target {
+              ... on Commit {
+                oid
+              }
+            }
+          }
+          languages(first: 20, orderBy: { field: SIZE, direction: DESC }) {
             edges {
               size
               node {
@@ -60,6 +73,12 @@ const FALLBACK_COLORS = [
   "#64748b",
 ];
 
+const CUSTOM_COLORS = {
+  MySQL: "#e38c00",
+  NoSQL: "#4db33d",
+  SQL: "#e38c00",
+};
+
 async function graphql(variables) {
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
@@ -79,8 +98,70 @@ async function graphql(variables) {
   return payload.data;
 }
 
-async function fetchLanguageBytes() {
+async function restJson(url) {
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "livyson-tech-distribution",
+    },
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`GitHub REST failed ${res.status}: ${body}`);
+  }
+  return res.json();
+}
+
+function addBytes(totals, name, size, color = null) {
+  if (!size || size <= 0) return;
+  const current = totals.get(name) || { name, color: color || null, size: 0 };
+  current.size += size;
+  if (!current.color && color) current.color = color;
+  if (CUSTOM_COLORS[name]) current.color = CUSTOM_COLORS[name];
+  totals.set(name, current);
+}
+
+async function fetchRepoTreesExtras(repos) {
+  let mysqlBytes = 0;
+  let nosqlBytes = 0;
+  let scanned = 0;
+
+  for (const repo of repos) {
+    const sha = repo.defaultBranchRef?.target?.oid;
+    if (!sha) continue;
+
+    try {
+      const tree = await restJson(
+        `https://api.github.com/repos/${username}/${repo.name}/git/trees/${sha}?recursive=1`,
+      );
+      scanned += 1;
+      for (const item of tree.tree || []) {
+        if (item.type !== "blob" || !item.path || !item.size) continue;
+        const filePath = item.path.replaceAll("\\", "/");
+        if (/\.sql$/i.test(filePath)) {
+          mysqlBytes += item.size;
+          continue;
+        }
+        // Scripts de prática Mongo/NoSQL (query-forge e similares)
+        if (
+          /(^|\/)(queries\/)?nosql\//i.test(filePath) &&
+          /\.(js|ts|mongodb)$/i.test(filePath)
+        ) {
+          nosqlBytes += item.size;
+        }
+      }
+    } catch (error) {
+      console.warn(`Skip tree ${repo.name}: ${error.message}`);
+    }
+  }
+
+  return { mysqlBytes, nosqlBytes, scanned };
+}
+
+async function fetchTechnologyBytes() {
   const totals = new Map();
+  const repoNodes = [];
   let cursor = null;
   let pages = 0;
 
@@ -89,21 +170,46 @@ async function fetchLanguageBytes() {
     const repos = data.user.repositories;
     for (const repo of repos.nodes) {
       if (!repo || repo.isArchived) continue;
+      repoNodes.push(repo);
       for (const edge of repo.languages.edges) {
-        const name = edge.node.name;
-        const color = edge.node.color || null;
-        const size = edge.size || 0;
-        const current = totals.get(name) || { name, color, size: 0 };
-        current.size += size;
-        if (!current.color && color) current.color = color;
-        totals.set(name, current);
+        addBytes(totals, edge.node.name, edge.size || 0, edge.node.color);
       }
     }
     cursor = repos.pageInfo.hasNextPage ? repos.pageInfo.endCursor : null;
     pages += 1;
   } while (cursor && pages < 5);
 
-  return [...totals.values()].sort((a, b) => b.size - a.size);
+  // Linguist não inclui SQL (type: data). Contamos *.sql como MySQL
+  // e queries/nosql/*.js como NoSQL (em vez de só JavaScript).
+  const extras = await fetchRepoTreesExtras(repoNodes);
+  console.log(
+    `Tree scan: repos=${extras.scanned} mysqlBytes=${extras.mysqlBytes} nosqlBytes=${extras.nosqlBytes}`,
+  );
+
+  if (extras.mysqlBytes > 0) {
+    addBytes(totals, "MySQL", extras.mysqlBytes, CUSTOM_COLORS.MySQL);
+  }
+  if (extras.nosqlBytes > 0) {
+    addBytes(totals, "NoSQL", extras.nosqlBytes, CUSTOM_COLORS.NoSQL);
+    // Evita contar duas vezes os mesmos bytes como JavaScript
+    const js = totals.get("JavaScript");
+    if (js) {
+      js.size = Math.max(0, js.size - extras.nosqlBytes);
+      if (js.size === 0) totals.delete("JavaScript");
+      else totals.set("JavaScript", js);
+    }
+  }
+
+  // Se o Linguist trouxe "SQL", consolida em MySQL
+  if (totals.has("SQL")) {
+    const sql = totals.get("SQL");
+    totals.delete("SQL");
+    addBytes(totals, "MySQL", sql.size, CUSTOM_COLORS.MySQL);
+  }
+
+  return [...totals.values()]
+    .filter((item) => item.size > 0)
+    .sort((a, b) => b.size - a.size);
 }
 
 function toSlices(languages) {
@@ -118,7 +224,10 @@ function toSlices(languages) {
     name: item.name,
     size: item.size,
     percent: (item.size / total) * 100,
-    color: item.color || FALLBACK_COLORS[index % FALLBACK_COLORS.length],
+    color:
+      item.color ||
+      CUSTOM_COLORS[item.name] ||
+      FALLBACK_COLORS[index % FALLBACK_COLORS.length],
   }));
 
   if (restSize > 0) {
@@ -165,6 +274,10 @@ function buildSvg(slices, meta) {
   const innerR = 78;
   const gap = slices.length > 1 ? 1.2 : 0;
 
+  // Ajusta altura da legenda se houver muitos itens
+  const legendHeight = Math.max(420, 88 + slices.length * 34 + 40);
+  const svgHeight = Math.max(height, legendHeight);
+
   const pathEls = [];
   let angle = 0;
   slices.forEach((slice, index) => {
@@ -196,10 +309,10 @@ function buildSvg(slices, meta) {
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technology distribution pie chart">
+<svg width="${width}" height="${svgHeight}" viewBox="0 0 ${width} ${svgHeight}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technology distribution pie chart">
   <rect width="100%" height="100%" rx="16" fill="#ffffff"/>
   <text x="36" y="42" fill="#ea580c" font-size="22" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Tech distribution</text>
-  <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages by bytes across owned repositories · top ${Math.min(TOP_N, slices.length)}</text>
+  <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
 
   <circle cx="${cx}" cy="${cy}" r="${outerR + 10}" fill="#fff7ed"/>
   ${pathEls.join("\n")}
@@ -208,29 +321,29 @@ function buildSvg(slices, meta) {
   <text x="${cx}" y="${cy + 18}" text-anchor="middle" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.name : "No data"}</text>
 
   ${legend}
-  <text x="36" y="${height - 18}" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
+  <text x="36" y="${svgHeight - 18}" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
 </svg>
 `;
 }
 
 async function main() {
-  const languages = await fetchLanguageBytes();
+  const languages = await fetchTechnologyBytes();
   const { total, slices } = toSlices(languages);
   console.log(
-    `Languages: ${languages.length} · slices: ${slices.length} · totalBytes=${total}`,
+    `Technologies: ${languages.length} · slices: ${slices.length} · totalBytes=${total}`,
   );
   if (slices[0]) {
     console.log(
       "Top:",
       slices
-        .slice(0, 5)
+        .slice(0, 8)
         .map((s) => `${s.name} ${s.percent.toFixed(1)}%`)
         .join(", "),
     );
   }
 
   const svg = buildSvg(slices, {
-    repoHint: `Aggregated from owned non-fork repositories · ${languages.length} languages detected`,
+    repoHint: `Owned repos + *.sql as MySQL + queries/nosql as NoSQL · ${languages.length} technologies`,
   });
   const distDir = path.join(process.cwd(), "dist");
   fs.mkdirSync(distDir, { recursive: true });
