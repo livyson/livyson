@@ -122,10 +122,11 @@ function point(cx, cy, radius, angleDeg) {
 }
 
 function buildSvg(counts, percents) {
-  const width = 560;
-  const height = 400;
+  // Extra altura/largura para acomodar 2 linhas de label sem clip
+  const width = 580;
+  const height = 430;
   const cx = width / 2;
-  const cy = height / 2 + 8;
+  const cy = height / 2 + 4;
   const maxR = 105;
 
   // topo=Code review, direita=Issues, baixo=PRs, esquerda=Commits
@@ -165,22 +166,33 @@ function buildSvg(counts, percents) {
     })
     .join("\n");
 
+  const font =
+    "-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif";
+
   const labels = axes
     .map((axis) => {
       const value = percents[axis.key];
+      // Empurra labels laterais mais para fora — textos longos como "Pull requests"
       const labelRadius =
-        axis.angle === 90 || axis.angle === 270 ? maxR + 78 : maxR + 52;
+        axis.angle === 90 || axis.angle === 270 ? maxR + 86 : maxR + 58;
       const labelPos = point(cx, cy, labelRadius, axis.angle);
       const anchor =
         axis.angle === 90 ? "start" : axis.angle === 270 ? "end" : "middle";
 
-      let y = labelPos.y;
-      if (axis.angle === 0) y -= 6;
-      if (axis.angle === 180) y += 18;
+      // Duas tags <text> com Y absoluto — NÃO usar <tspan dy>, que o Camo/SVG
+      // do GitHub frequentemente ignora e faz as linhas se sobreporem.
+      let titleY = labelPos.y;
+      if (axis.angle === 0) titleY -= 10;
+      if (axis.angle === 180) titleY += 8;
+      const subY = titleY + 18;
 
-      // Uma única linha por eixo — evita qualquer sobreposição
-      const line = `${value}% ${axis.label} (${axis.count.toLocaleString("en-US")})`;
-      return `<text x="${labelPos.x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${anchor}" dominant-baseline="middle" fill="#24292f" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${line}</text>`;
+      const title = `${value}% ${axis.label}`;
+      const subtitle = `${axis.count.toLocaleString("en-US")} contributions`;
+
+      return [
+        `<text x="${labelPos.x.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="#24292f" font-size="14" font-weight="600" font-family="${font}">${title}</text>`,
+        `<text x="${labelPos.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="${anchor}" fill="#57606a" font-size="12" font-weight="400" font-family="${font}">${subtitle}</text>`,
+      ].join("\n");
     })
     .join("\n");
 

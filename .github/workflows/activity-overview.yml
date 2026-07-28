@@ -61,42 +61,42 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add activity-overview.svg
 
-          VERSION="$(date -u +%Y%m%d%H%M)"
-          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
-
           if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "SVG content unchanged; still refreshing README cache buster."
+            echo "SVG content unchanged"
+            SHA="$(git rev-parse HEAD)"
           else
             git commit -m "Update activity-overview.svg"
             git push -u origin HEAD:output
-            echo "changed=true" >> "$GITHUB_OUTPUT"
+            SHA="$(git rev-parse HEAD)"
           fi
+          echo "sha=${SHA}" >> "$GITHUB_OUTPUT"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Refresh README image cache buster
+      - name: Point README at commit SHA (bypasses raw.githubusercontent CDN)
         run: |
           set -euo pipefail
-          VERSION="${{ steps.publish.outputs.version }}"
-          # Mantém a URL estável e só troca o query param para furar cache do Camo/CDN
+          SHA="${{ steps.publish.outputs.sha }}"
+          # raw.githubusercontent.com cacheia por path e IGNORA ?v= —
+          # usar o SHA do commit muda o path e força conteúdo novo.
           python3 - <<'PY'
           from pathlib import Path
           import os, re
-          version = os.environ["VERSION"]
+          sha = os.environ["SHA"]
           path = Path("README.md")
           text = path.read_text(encoding="utf-8")
           pattern = re.compile(
-              r"(https://raw\.githubusercontent\.com/livyson/livyson/output/activity-overview\.svg)(?:\?v=[0-9]+)?"
+              r"https://raw\.githubusercontent\.com/livyson/livyson/(?:output|[0-9a-f]{7,40})/activity-overview\.svg(?:\?[^\"'\s]*)?"
           )
-          updated, count = pattern.subn(rf"\1?v={version}", text)
+          replacement = f"https://raw.githubusercontent.com/livyson/livyson/{sha}/activity-overview.svg"
+          updated, count = pattern.subn(replacement, text)
           if count == 0:
               raise SystemExit("activity-overview.svg URL not found in README.md")
           if updated == text:
-              print("README cache buster already up to date")
+              print(f"README already points to {sha}")
           else:
               path.write_text(updated, encoding="utf-8")
-              print(f"README cache buster set to v={version}")
+              print(f"README image URL set to commit {sha}")
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -108,4 +108,4 @@ jobs:
           git commit -m "chore: refresh activity overview cache [skip ci]"
           git push
         env:
-          VERSION: ${{ steps.publish.outputs.version }}
+          SHA: ${{ steps.publish.outputs.sha }}
