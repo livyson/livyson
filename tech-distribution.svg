@@ -5,32 +5,32 @@
   <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top 5</text>
 
   <circle cx="250" cy="230" r="148" fill="#fff7ed"/>
-  <path d="M 251.45 92.01 A 138 138 0 1 1 125.39 170.71 L 179.57 196.49 A 78 78 0 1 0 250.82 152.00 Z" fill="#b07219" stroke="#ffffff" stroke-width="2" opacity="0">
-        <title>Java: 82.2%</title>
+  <path d="M 251.45 92.01 A 138 138 0 1 1 126.62 168.19 L 180.26 195.06 A 78 78 0 1 0 250.82 152.00 Z" fill="#b07219" stroke="#ffffff" stroke-width="2" opacity="0">
+        <title>Java: 82.6%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 126.66 168.11 A 138 138 0 0 1 211.85 97.38 L 228.44 155.04 A 78 78 0 0 0 180.28 195.02 Z" fill="#3572A5" stroke="#ffffff" stroke-width="2" opacity="0">
-        <title>Python: 13.5%</title>
+<path d="M 127.94 165.62 A 138 138 0 0 1 212.14 97.29 L 228.60 154.99 A 78 78 0 0 0 181.01 193.61 Z" fill="#3572A5" stroke="#ffffff" stroke-width="2" opacity="0">
+        <title>Python: 13.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 214.63 96.61 A 138 138 0 0 1 244.43 92.11 L 246.85 152.06 A 78 78 0 0 0 230.01 154.61 Z" fill="#f1e05a" stroke="#ffffff" stroke-width="2" opacity="0">
+<path d="M 214.93 96.53 A 138 138 0 0 1 244.52 92.11 L 246.90 152.06 A 78 78 0 0 0 230.18 154.56 Z" fill="#f1e05a" stroke="#ffffff" stroke-width="2" opacity="0">
         <title>JavaScript: 3.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
   <circle cx="250" cy="230" r="76" fill="#ffffff"/>
-  <text x="250" y="222" text-anchor="middle" fill="#0f172a" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">82%</text>
+  <text x="250" y="222" text-anchor="middle" fill="#0f172a" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">83%</text>
   <text x="250" y="248" text-anchor="middle" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
 
   
         <circle cx="470" cy="88" r="7" fill="#b07219" />
         <text x="490" y="93" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
-        <text x="860" y="93" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">82.2%</text>
+        <text x="860" y="93" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">82.6%</text>
         <line x1="490" y1="102" x2="860" y2="102" stroke="#f1f5f9" stroke-width="1" />
       
 
         <circle cx="470" cy="122" r="7" fill="#3572A5" />
         <text x="490" y="127" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-        <text x="860" y="127" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">13.5%</text>
+        <text x="860" y="127" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">13.2%</text>
         <line x1="490" y1="136" x2="860" y2="136" stroke="#f1f5f9" stroke-width="1" />
       
 
@@ -42,7 +42,7 @@
 
         <circle cx="470" cy="190" r="7" fill="#4db33d" />
         <text x="490" y="195" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">NoSQL</text>
-        <text x="860" y="195" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.3%</text>
+        <text x="860" y="195" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.2%</text>
         <line x1="490" y1="204" x2="860" y2="204" stroke="#f1f5f9" stroke-width="1" />
       
 
