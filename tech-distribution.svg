@@ -5,23 +5,23 @@
   <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top 5</text>
 
   <circle cx="250" cy="230" r="148" fill="#fff7ed"/>
-  <path d="M 251.45 92.01 A 138 138 0 1 1 130.82 160.42 L 182.64 190.67 A 78 78 0 1 0 250.82 152.00 Z" fill="#b07219" stroke="#ffffff" stroke-width="2" opacity="0">
-        <title>Java: 83.6%</title>
+  <path d="M 251.45 92.01 A 138 138 0 1 1 131.32 159.57 L 182.92 190.19 A 78 78 0 1 0 250.82 152.00 Z" fill="#b07219" stroke="#ffffff" stroke-width="2" opacity="0">
+        <title>Java: 83.7%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 132.31 157.94 A 138 138 0 0 1 212.35 97.24 L 228.72 154.96 A 78 78 0 0 0 183.48 189.27 Z" fill="#3572A5" stroke="#ffffff" stroke-width="2" opacity="0">
-        <title>Python: 12.2%</title>
+<path d="M 132.82 157.10 A 138 138 0 0 1 212.69 97.14 L 228.91 154.90 A 78 78 0 0 0 183.77 188.80 Z" fill="#3572A5" stroke="#ffffff" stroke-width="2" opacity="0">
+        <title>Python: 12.1%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 215.14 96.48 A 138 138 0 0 1 241.75 92.25 L 245.34 152.14 A 78 78 0 0 0 230.29 154.53 Z" fill="#f1e05a" stroke="#ffffff" stroke-width="2" opacity="0">
+<path d="M 215.49 96.39 A 138 138 0 0 1 241.82 92.24 L 245.38 152.14 A 78 78 0 0 0 230.49 154.48 Z" fill="#f1e05a" stroke="#ffffff" stroke-width="2" opacity="0">
         <title>JavaScript: 3.4%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 244.64 92.10 A 138 138 0 0 1 245.35 92.08 L 247.37 152.04 A 78 78 0 0 0 246.97 152.06 Z" fill="#4db33d" stroke="#ffffff" stroke-width="2" opacity="0">
+<path d="M 244.71 92.10 A 138 138 0 0 1 245.38 92.08 L 247.39 152.04 A 78 78 0 0 0 247.01 152.06 Z" fill="#4db33d" stroke="#ffffff" stroke-width="2" opacity="0">
         <title>NoSQL: 0.4%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.21s" dur="0.4s" fill="freeze" />
       </path>
-<path d="M 248.24 92.01 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 249.00 152.01 Z" fill="#e38c00" stroke="#ffffff" stroke-width="2" opacity="0">
+<path d="M 248.27 92.01 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 249.02 152.01 Z" fill="#e38c00" stroke="#ffffff" stroke-width="2" opacity="0">
         <title>MySQL: 0.4%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.28s" dur="0.4s" fill="freeze" />
       </path>
@@ -32,13 +32,13 @@
   
         <circle cx="470" cy="88" r="7" fill="#b07219" />
         <text x="490" y="93" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
-        <text x="860" y="93" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">83.6%</text>
+        <text x="860" y="93" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">83.7%</text>
         <line x1="490" y1="102" x2="860" y2="102" stroke="#f1f5f9" stroke-width="1" />
       
 
         <circle cx="470" cy="122" r="7" fill="#3572A5" />
         <text x="490" y="127" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-        <text x="860" y="127" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">12.2%</text>
+        <text x="860" y="127" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">12.1%</text>
         <line x1="490" y1="136" x2="860" y2="136" stroke="#f1f5f9" stroke-width="1" />
       
 
