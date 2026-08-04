@@ -150,7 +150,7 @@ function buildSvg(counts, percents) {
   const axisLines = axes
     .map((axis) => {
       const end = point(cx, cy, maxR, axis.angle);
-      return `<line x1="${cx}" y1="${cy}" x2="${end.x.toFixed(1)}" y2="${end.y.toFixed(1)}" stroke="#ea580c" stroke-width="1.5" />`;
+      return `<line x1="${cx}" y1="${cy}" x2="${end.x.toFixed(1)}" y2="${end.y.toFixed(1)}" stroke="#F0A202" stroke-width="1.5" />`;
     })
     .join("\n");
 
@@ -162,7 +162,7 @@ function buildSvg(counts, percents) {
           return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
         })
         .join(" ");
-      return `<polygon points="${pts}" fill="none" stroke="#fed7aa" stroke-width="1" />`;
+      return `<polygon points="${pts}" fill="none" stroke="#1C2430" stroke-width="1" />`;
     })
     .join("\n");
 
@@ -190,8 +190,8 @@ function buildSvg(counts, percents) {
       const subtitle = `${axis.count.toLocaleString("en-US")} contributions`;
 
       return [
-        `<text x="${labelPos.x.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="#24292f" font-size="14" font-weight="600" font-family="${font}">${title}</text>`,
-        `<text x="${labelPos.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="${anchor}" fill="#57606a" font-size="12" font-weight="400" font-family="${font}">${subtitle}</text>`,
+        `<text x="${labelPos.x.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="#F4F7FB" font-size="14" font-weight="600" font-family="${font}">${title}</text>`,
+        `<text x="${labelPos.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="${anchor}" fill="#9AA6B8" font-size="12" font-weight="400" font-family="${font}">${subtitle}</text>`,
       ].join("\n");
     })
     .join("\n");
@@ -199,17 +199,17 @@ function buildSvg(counts, percents) {
   const dots = dataPoints
     .map(
       (p) =>
-        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="#ffffff" stroke="#ea580c" stroke-width="2" />`,
+        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="#07090D" stroke="#2DD4BF" stroke-width="2" />`,
     )
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview for ${counts.year}">
-  <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="${cx}" y="26" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
+  <rect width="100%" height="100%" fill="#07090D"/>
+  <text x="${cx}" y="26" text-anchor="middle" fill="#9AA6B8" font-size="13" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
   ${rings}
   ${axisLines}
-  <polygon points="${polygon}" fill="rgba(249, 115, 22, 0.28)" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
+  <polygon points="${polygon}" fill="rgba(45, 212, 191, 0.22)" stroke="#2DD4BF" stroke-width="2" stroke-linejoin="round" />
   ${dots}
   ${labels}
 </svg>

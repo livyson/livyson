@@ -61,22 +61,22 @@ const query = `
 `;
 
 const FALLBACK_COLORS = [
-  "#f97316",
-  "#ea580c",
-  "#fb923c",
-  "#fdba74",
-  "#f59e0b",
-  "#0ea5e9",
+  "#2DD4BF",
+  "#F0A202",
+  "#4f8a97",
+  "#9AA6B8",
   "#14b8a6",
-  "#6366f1",
-  "#22c55e",
+  "#0ea5e9",
+  "#fbbf24",
+  "#5eead4",
   "#64748b",
+  "#94a3b8",
 ];
 
 const CUSTOM_COLORS = {
-  MySQL: "#e38c00",
-  NoSQL: "#4db33d",
-  SQL: "#e38c00",
+  MySQL: "#F0A202",
+  NoSQL: "#2DD4BF",
+  SQL: "#F0A202",
 };
 
 async function graphql(variables) {
@@ -288,7 +288,7 @@ function buildSvg(slices, meta) {
     if (end <= start) return;
     const d = donutSlice(cx, cy, innerR, outerR, start, end);
     pathEls.push(
-      `<path d="${d}" fill="${slice.color}" stroke="#ffffff" stroke-width="2" opacity="0">
+      `<path d="${d}" fill="${slice.color}" stroke="#07090D" stroke-width="2" opacity="0">
         <title>${slice.name}: ${slice.percent.toFixed(1)}%</title>
         <animate attributeName="opacity" from="0" to="1" begin="${(index * 0.07).toFixed(2)}s" dur="0.4s" fill="freeze" />
       </path>`,
@@ -301,27 +301,27 @@ function buildSvg(slices, meta) {
       const y = 88 + index * 34;
       return `
         <circle cx="470" cy="${y}" r="7" fill="${slice.color}" />
-        <text x="490" y="${y + 5}" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.name}</text>
-        <text x="860" y="${y + 5}" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.percent.toFixed(1)}%</text>
-        <line x1="490" y1="${y + 14}" x2="860" y2="${y + 14}" stroke="#f1f5f9" stroke-width="1" />
+        <text x="490" y="${y + 5}" fill="#F4F7FB" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.name}</text>
+        <text x="860" y="${y + 5}" text-anchor="end" fill="#9AA6B8" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.percent.toFixed(1)}%</text>
+        <line x1="490" y1="${y + 14}" x2="860" y2="${y + 14}" stroke="#1C2430" stroke-width="1" />
       `;
     })
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${svgHeight}" viewBox="0 0 ${width} ${svgHeight}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technology distribution pie chart">
-  <rect width="100%" height="100%" rx="16" fill="#ffffff"/>
-  <text x="36" y="42" fill="#ea580c" font-size="22" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Tech distribution</text>
-  <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
+  <rect width="100%" height="100%" rx="16" fill="#07090D"/>
+  <text x="36" y="42" fill="#2DD4BF" font-size="22" font-weight="700" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace">Tech distribution</text>
+  <text x="36" y="66" fill="#9AA6B8" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
 
-  <circle cx="${cx}" cy="${cy}" r="${outerR + 10}" fill="#fff7ed"/>
+  <circle cx="${cx}" cy="${cy}" r="${outerR + 10}" fill="#121821"/>
   ${pathEls.join("\n")}
-  <circle cx="${cx}" cy="${cy}" r="${innerR - 2}" fill="#ffffff"/>
-  <text x="${cx}" y="${cy - 8}" text-anchor="middle" fill="#0f172a" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.percent.toFixed(0) + "%" : "—"}</text>
-  <text x="${cx}" y="${cy + 18}" text-anchor="middle" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.name : "No data"}</text>
+  <circle cx="${cx}" cy="${cy}" r="${innerR - 2}" fill="#07090D"/>
+  <text x="${cx}" y="${cy - 8}" text-anchor="middle" fill="#F4F7FB" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.percent.toFixed(0) + "%" : "—"}</text>
+  <text x="${cx}" y="${cy + 18}" text-anchor="middle" fill="#9AA6B8" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.name : "No data"}</text>
 
   ${legend}
-  <text x="36" y="${svgHeight - 18}" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
+  <text x="36" y="${svgHeight - 18}" fill="#9AA6B8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
 </svg>
 `;
 }
