@@ -1,0 +1,10 @@
+{
+  "note": "Fallback when GITHUB_TOKEN cannot see private owned repos. Overridden automatically when a PAT with repo scope returns a fuller scan.",
+  "languages": [
+    { "name": "Java", "size": 737359, "color": "#b07219" },
+    { "name": "Python", "size": 99714, "color": "#3572A5" },
+    { "name": "JavaScript", "size": 27990, "color": "#f1e05a" },
+    { "name": "NoSQL", "size": 5248, "color": "#4db33d" },
+    { "name": "MySQL", "size": 4373, "color": "#e38c00" }
+  ]
+}

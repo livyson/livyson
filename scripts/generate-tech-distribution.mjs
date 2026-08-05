@@ -12,11 +12,19 @@ import fs from "node:fs";
 import path from "node:path";
 
 const username = process.env.GITHUB_ACTOR || "livyson";
-const token = process.env.GITHUB_TOKEN;
+// PAT com scope `repo` (secrets.PROFILE_GITHUB_TOKEN) enxerga repos privados;
+// GITHUB_TOKEN do Actions só vê o próprio repositório público.
+const token = process.env.PROFILE_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
 const TOP_N = 8;
+const MIN_LIVE_TECHNOLOGIES = 2;
+const FALLBACK_PATH = path.join(
+  process.cwd(),
+  "data",
+  "tech-distribution-fallback.json",
+);
 
 if (!token) {
-  console.error("Missing GITHUB_TOKEN");
+  console.error("Missing PROFILE_GITHUB_TOKEN or GITHUB_TOKEN");
   process.exit(1);
 }
 
@@ -338,11 +346,36 @@ function buildSvg(slices, meta) {
 `;
 }
 
+function loadFallbackLanguages() {
+  const raw = JSON.parse(fs.readFileSync(FALLBACK_PATH, "utf8"));
+  return (raw.languages || [])
+    .filter((item) => item.size > 0)
+    .map((item) => ({
+      name: item.name,
+      size: item.size,
+      color: item.color || CUSTOM_COLORS[item.name] || null,
+    }))
+    .sort((a, b) => b.size - a.size);
+}
+
 async function main() {
-  const languages = await fetchTechnologyBytes();
+  let languages = await fetchTechnologyBytes();
+  let source = "live GitHub scan";
+
+  if (languages.length < MIN_LIVE_TECHNOLOGIES) {
+    console.warn(
+      `Live scan returned only ${languages.length} technolog(y/ies); using fallback from ${FALLBACK_PATH}`,
+    );
+    console.warn(
+      "Tip: set repo secret PROFILE_GITHUB_TOKEN (classic PAT with `repo` scope) to include private owned repos.",
+    );
+    languages = loadFallbackLanguages();
+    source = "fallback cache";
+  }
+
   const { total, slices } = toSlices(languages);
   console.log(
-    `Technologies: ${languages.length} · slices: ${slices.length} · totalBytes=${total}`,
+    `Technologies: ${languages.length} · slices: ${slices.length} · totalBytes=${total} · source=${source}`,
   );
   if (slices[0]) {
     console.log(
