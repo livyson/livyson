@@ -68,23 +68,26 @@ const query = `
   }
 `;
 
-const FALLBACK_COLORS = [
-  "#f97316",
-  "#ea580c",
-  "#fb923c",
-  "#fdba74",
-  "#f59e0b",
-  "#0ea5e9",
-  "#14b8a6",
-  "#6366f1",
-  "#22c55e",
-  "#64748b",
+// Mesma paleta dos badges Data / Infra do README
+const BADGE_PALETTE = [
+  "#4169E1", // PostgreSQL
+  "#47A248", // MongoDB
+  "#DC382D", // Redis
+  "#FF6600", // RabbitMQ
+  "#FF694B", // dbt
+  "#017CEE", // Airflow
 ];
 
+const FALLBACK_COLORS = BADGE_PALETTE;
+
 const CUSTOM_COLORS = {
-  MySQL: "#e38c00",
-  NoSQL: "#4db33d",
-  SQL: "#e38c00",
+  MySQL: "#4169E1", // PostgreSQL
+  SQL: "#4169E1",
+  NoSQL: "#47A248", // MongoDB
+  Java: "#FF6600", // RabbitMQ
+  Python: "#017CEE", // Airflow
+  JavaScript: "#DC382D", // Redis
+  TypeScript: "#FF694B", // dbt
 };
 
 async function graphql(variables) {
@@ -232,10 +235,10 @@ function toSlices(languages) {
     name: item.name,
     size: item.size,
     percent: (item.size / total) * 100,
+    // Sempre a paleta dos badges — ignora cores do Linguist
     color:
-      item.color ||
       CUSTOM_COLORS[item.name] ||
-      FALLBACK_COLORS[index % FALLBACK_COLORS.length],
+      BADGE_PALETTE[index % BADGE_PALETTE.length],
   }));
 
   if (restSize > 0) {
@@ -243,7 +246,7 @@ function toSlices(languages) {
       name: "Other",
       size: restSize,
       percent: (restSize / total) * 100,
-      color: "#94a3b8",
+      color: BADGE_PALETTE[slices.length % BADGE_PALETTE.length],
     });
   }
 
