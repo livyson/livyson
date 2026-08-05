@@ -143,8 +143,8 @@ function buildSvg(buckets, meta) {
       const y = pad.top + plotH * (1 - t);
       const value = Math.round(maxCount * t);
       return `
-        <line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${width - pad.right}" y2="${y.toFixed(1)}" stroke="#e5e7eb" stroke-width="1" />
-        <text x="${pad.left - 10}" y="${(y + 4).toFixed(1)}" text-anchor="end" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${value}</text>
+        <line class="grid" x1="${pad.left}" y1="${y.toFixed(1)}" x2="${width - pad.right}" y2="${y.toFixed(1)}" stroke-width="1" />
+        <text class="muted" x="${pad.left - 10}" y="${(y + 4).toFixed(1)}" text-anchor="end" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${value}</text>
       `;
     })
     .join("");
@@ -155,24 +155,35 @@ function buildSvg(buckets, meta) {
     .filter((_, i) => i % labelStep === 0 || i === n - 1)
     .map(
       (p) =>
-        `<text x="${p.x.toFixed(1)}" y="${height - 18}" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${formatLabel(p.start)}</text>`,
+        `<text class="muted" x="${p.x.toFixed(1)}" y="${height - 18}" text-anchor="middle" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${formatLabel(p.start)}</text>`,
     )
     .join("\n");
 
   const dots = points
     .map(
       (p) =>
-        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"><title>${formatLabel(p.start)} – ${formatLabel(p.end)}: ${p.count} contributions</title></circle>`,
+        `<circle class="dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.5" fill="#ea580c" stroke-width="1.5"><title>${formatLabel(p.start)} – ${formatLabel(p.end)}: ${p.count} contributions</title></circle>`,
     )
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Biweekly contribution graph for ${meta.year}">
-  <rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+  <style>
+    .muted { fill: #57606a; }
+    .grid { stroke: #d0d7de; }
+    .dot { stroke: #ffffff; }
+    .area { fill: rgba(249, 115, 22, 0.18); }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #8b949e; }
+      .grid { stroke: #30363d; }
+      .dot { stroke: #0d1117; }
+      .area { fill: rgba(249, 115, 22, 0.22); }
+    }
+  </style>
   <text x="${width / 2}" y="28" text-anchor="middle" fill="#ea580c" font-size="16" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Contribution Graph · biweekly (15 days) · ${meta.year}</text>
-  <text x="${width / 2}" y="46" text-anchor="middle" fill="#6b7280" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.total.toLocaleString("en-US")} contributions total</text>
+  <text class="muted" x="${width / 2}" y="46" text-anchor="middle" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.total.toLocaleString("en-US")} contributions total</text>
   ${gridLines}
-  <path d="${areaPath}" fill="rgba(249, 115, 22, 0.22)" />
+  <path class="area" d="${areaPath}" />
   <path d="${linePath}" fill="none" stroke="#f97316" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />
   ${dots}
   ${xLabels}

@@ -162,7 +162,7 @@ function buildSvg(counts, percents) {
           return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
         })
         .join(" ");
-      return `<polygon points="${pts}" fill="none" stroke="#fed7aa" stroke-width="1" />`;
+      return `<polygon class="ring" points="${pts}" fill="none" stroke-width="1" />`;
     })
     .join("\n");
 
@@ -190,8 +190,8 @@ function buildSvg(counts, percents) {
       const subtitle = `${axis.count.toLocaleString("en-US")} contributions`;
 
       return [
-        `<text x="${labelPos.x.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" fill="#24292f" font-size="14" font-weight="600" font-family="${font}">${title}</text>`,
-        `<text x="${labelPos.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="${anchor}" fill="#57606a" font-size="12" font-weight="400" font-family="${font}">${subtitle}</text>`,
+        `<text class="fg" x="${labelPos.x.toFixed(1)}" y="${titleY.toFixed(1)}" text-anchor="${anchor}" font-size="14" font-weight="600" font-family="${font}">${title}</text>`,
+        `<text class="muted" x="${labelPos.x.toFixed(1)}" y="${subY.toFixed(1)}" text-anchor="${anchor}" font-size="12" font-weight="400" font-family="${font}">${subtitle}</text>`,
       ].join("\n");
     })
     .join("\n");
@@ -199,17 +199,30 @@ function buildSvg(counts, percents) {
   const dots = dataPoints
     .map(
       (p) =>
-        `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" fill="#ffffff" stroke="#ea580c" stroke-width="2" />`,
+        `<circle class="dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5" stroke="#ea580c" stroke-width="2" />`,
     )
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub activity overview for ${counts.year}">
-  <rect width="100%" height="100%" fill="#ffffff"/>
-  <text x="${cx}" y="26" text-anchor="middle" fill="#57606a" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
+  <style>
+    .muted { fill: #57606a; }
+    .fg { fill: #24292f; }
+    .ring { stroke: #fdba74; }
+    .dot { fill: #ffffff; }
+    .radar { fill: rgba(249, 115, 22, 0.22); }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #8b949e; }
+      .fg { fill: #e6edf3; }
+      .ring { stroke: #9a3412; }
+      .dot { fill: #0d1117; }
+      .radar { fill: rgba(249, 115, 22, 0.28); }
+    }
+  </style>
+  <text class="muted" x="${cx}" y="26" text-anchor="middle" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · ${counts.year} · ${percents.total.toLocaleString("en-US")} total</text>
   ${rings}
   ${axisLines}
-  <polygon points="${polygon}" fill="rgba(249, 115, 22, 0.28)" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
+  <polygon class="radar" points="${polygon}" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
   ${dots}
   ${labels}
 </svg>

@@ -288,7 +288,7 @@ function buildSvg(slices, meta) {
     if (end <= start) return;
     const d = donutSlice(cx, cy, innerR, outerR, start, end);
     pathEls.push(
-      `<path d="${d}" fill="${slice.color}" stroke="#ffffff" stroke-width="2" opacity="0">
+      `<path class="slice" d="${d}" fill="${slice.color}" stroke-width="2" opacity="0">
         <title>${slice.name}: ${slice.percent.toFixed(1)}%</title>
         <animate attributeName="opacity" from="0" to="1" begin="${(index * 0.07).toFixed(2)}s" dur="0.4s" fill="freeze" />
       </path>`,
@@ -301,27 +301,39 @@ function buildSvg(slices, meta) {
       const y = 88 + index * 34;
       return `
         <circle cx="470" cy="${y}" r="7" fill="${slice.color}" />
-        <text x="490" y="${y + 5}" fill="#0f172a" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.name}</text>
-        <text x="860" y="${y + 5}" text-anchor="end" fill="#64748b" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.percent.toFixed(1)}%</text>
-        <line x1="490" y1="${y + 14}" x2="860" y2="${y + 14}" stroke="#f1f5f9" stroke-width="1" />
+        <text class="fg" x="490" y="${y + 5}" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.name}</text>
+        <text class="muted" x="860" y="${y + 5}" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${slice.percent.toFixed(1)}%</text>
+        <line class="rule" x1="490" y1="${y + 14}" x2="860" y2="${y + 14}" stroke-width="1" />
       `;
     })
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg width="${width}" height="${svgHeight}" viewBox="0 0 ${width} ${svgHeight}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Technology distribution pie chart">
-  <rect width="100%" height="100%" rx="16" fill="#ffffff"/>
+  <style>
+    .muted { fill: #57606a; }
+    .fg { fill: #24292f; }
+    .rule { stroke: #d0d7de; }
+    .slice { stroke: rgba(255, 255, 255, 0.65); }
+    .halo { fill: rgba(249, 115, 22, 0.10); }
+    @media (prefers-color-scheme: dark) {
+      .muted { fill: #8b949e; }
+      .fg { fill: #e6edf3; }
+      .rule { stroke: #30363d; }
+      .slice { stroke: rgba(13, 17, 23, 0.65); }
+      .halo { fill: rgba(249, 115, 22, 0.14); }
+    }
+  </style>
   <text x="36" y="42" fill="#ea580c" font-size="22" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Tech distribution</text>
-  <text x="36" y="66" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
+  <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
 
-  <circle cx="${cx}" cy="${cy}" r="${outerR + 10}" fill="#fff7ed"/>
+  <circle class="halo" cx="${cx}" cy="${cy}" r="${outerR + 10}" />
   ${pathEls.join("\n")}
-  <circle cx="${cx}" cy="${cy}" r="${innerR - 2}" fill="#ffffff"/>
-  <text x="${cx}" y="${cy - 8}" text-anchor="middle" fill="#0f172a" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.percent.toFixed(0) + "%" : "—"}</text>
-  <text x="${cx}" y="${cy + 18}" text-anchor="middle" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.name : "No data"}</text>
+  <text class="fg" x="${cx}" y="${cy - 8}" text-anchor="middle" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.percent.toFixed(0) + "%" : "—"}</text>
+  <text class="muted" x="${cx}" y="${cy + 18}" text-anchor="middle" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${top ? top.name : "No data"}</text>
 
   ${legend}
-  <text x="36" y="${svgHeight - 18}" fill="#94a3b8" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
+  <text class="muted" x="36" y="${svgHeight - 18}" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">${meta.repoHint}</text>
 </svg>
 `;
 }
