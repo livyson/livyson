@@ -15,31 +15,62 @@ if (!token) {
   process.exit(1);
 }
 
+// Janela padrão do GitHub (= último ano), igual ao Activity Overview do perfil.
 const query = `
-  query($login: String!, $from: DateTime!, $to: DateTime!) {
+  query($login: String!) {
     user(login: $login) {
-      contributionsCollection(from: $from, to: $to) {
+      contributionsCollection {
         totalCommitContributions
         totalIssueContributions
         totalPullRequestContributions
         totalPullRequestReviewContributions
+        restrictedContributionsCount
       }
     }
   }
 `;
 
-function yearWindow() {
-  const now = new Date();
-  const year = now.getUTCFullYear();
-  return {
-    from: `${year}-01-01T00:00:00.000Z`,
-    to: now.toISOString(),
-    year,
+/**
+ * Percentuais públicos do Activity Overview do perfil.
+ * O GraphQL (GITHUB_TOKEN / PAT limitado) omite a maior parte das contribuições
+ * privadas/org como restrictedContributionsCount e zera o radar.
+ */
+async function fetchProfilePercents() {
+  const res = await fetch(`https://github.com/users/${username}/contributions`, {
+    headers: {
+      Accept: "text/html",
+      "User-Agent": "livyson-activity-overview",
+    },
+  });
+  if (!res.ok) {
+    throw new Error(`Profile contributions page failed: HTTP ${res.status}`);
+  }
+
+  const html = await res.text();
+  const match = html.match(/data-percentages="([^"]+)"/);
+  if (!match) {
+    throw new Error("data-percentages not found on contributions page");
+  }
+
+  const raw = JSON.parse(match[1].replaceAll("&quot;", '"'));
+  const percents = {
+    commits: Number(raw.Commits) || 0,
+    pullRequests: Number(raw["Pull requests"]) || 0,
+    issues: Number(raw.Issues) || 0,
+    codeReview: Number(raw["Code review"]) || 0,
   };
+  const sum =
+    percents.commits +
+    percents.pullRequests +
+    percents.issues +
+    percents.codeReview;
+  if (sum !== 100) {
+    throw new Error(`Profile percents sum to ${sum}, expected 100: ${JSON.stringify(percents)}`);
+  }
+  return percents;
 }
 
-async function fetchContributions() {
-  const { from, to, year } = yearWindow();
+async function fetchContributionPool() {
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
@@ -49,7 +80,7 @@ async function fetchContributions() {
     },
     body: JSON.stringify({
       query,
-      variables: { login: username, from, to },
+      variables: { login: username },
     }),
   });
 
@@ -61,16 +92,93 @@ async function fetchContributions() {
   }
 
   const c = payload.data.user.contributionsCollection;
+  const visible =
+    (c.totalCommitContributions || 0) +
+    (c.totalIssueContributions || 0) +
+    (c.totalPullRequestContributions || 0) +
+    (c.totalPullRequestReviewContributions || 0);
+  const restricted = c.restrictedContributionsCount || 0;
   return {
-    year,
-    commits: c.totalCommitContributions || 0,
-    pullRequests: c.totalPullRequestContributions || 0,
-    issues: c.totalIssueContributions || 0,
-    codeReview: c.totalPullRequestReviewContributions || 0,
+    visible,
+    restricted,
+    total: visible + restricted,
+    typed: {
+      commits: c.totalCommitContributions || 0,
+      pullRequests: c.totalPullRequestContributions || 0,
+      issues: c.totalIssueContributions || 0,
+      codeReview: c.totalPullRequestReviewContributions || 0,
+    },
   };
 }
 
+function allocateByPercents(percents, total) {
+  const entries = [
+    ["commits", percents.commits],
+    ["pullRequests", percents.pullRequests],
+    ["issues", percents.issues],
+    ["codeReview", percents.codeReview],
+  ];
+  if (total <= 0) {
+    return {
+      commits: 0,
+      pullRequests: 0,
+      issues: 0,
+      codeReview: 0,
+    };
+  }
+
+  const raw = entries.map(([key, pct]) => {
+    const exact = (pct / 100) * total;
+    return { key, exact, base: Math.floor(exact), frac: exact - Math.floor(exact) };
+  });
+  let remaining = total - raw.reduce((sum, item) => sum + item.base, 0);
+  raw
+    .slice()
+    .sort((a, b) => b.frac - a.frac)
+    .forEach((item) => {
+      if (remaining > 0) {
+        item.base += 1;
+        remaining -= 1;
+      }
+    });
+
+  return {
+    commits: raw.find((item) => item.key === "commits").base,
+    pullRequests: raw.find((item) => item.key === "pullRequests").base,
+    issues: raw.find((item) => item.key === "issues").base,
+    codeReview: raw.find((item) => item.key === "codeReview").base,
+  };
+}
+
+async function fetchContributions() {
+  const year = new Date().getUTCFullYear();
+  const pool = await fetchContributionPool();
+
+  try {
+    const percents = await fetchProfilePercents();
+    const counts = allocateByPercents(percents, pool.total);
+    console.log("Source: profile Activity Overview percentages");
+    console.log("Pool:", pool);
+    return {
+      year,
+      ...counts,
+      percents: { ...percents, total: pool.total },
+    };
+  } catch (error) {
+    console.warn("Profile scrape failed, falling back to GraphQL typed totals:", error.message);
+    return {
+      year,
+      ...pool.typed,
+      percents: null,
+    };
+  }
+}
+
 function toPercents(counts) {
+  if (counts.percents) {
+    return counts.percents;
+  }
+
   const entries = [
     ["commits", counts.commits],
     ["pullRequests", counts.pullRequests],
