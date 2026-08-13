@@ -6,6 +6,8 @@
  * Além das linguagens do GitHub Linguist, inclui:
  * - MySQL  → arquivos *.sql (Linguist marca SQL como "data" e não entra nas stats)
  * - NoSQL  → scripts Mongo em queries/nosql/*.js (senão viram só JavaScript)
+ *
+ * HTML é excluído de propósito (markup de README/templates distorce o gráfico).
  */
 
 import fs from "node:fs";
@@ -17,6 +19,8 @@ const username = process.env.GITHUB_ACTOR || "livyson";
 const token = process.env.PROFILE_GITHUB_TOKEN || process.env.GITHUB_TOKEN;
 const TOP_N = 8;
 const MIN_LIVE_TECHNOLOGIES = 2;
+/** Linguagens do Linguist que não entram no gráfico. */
+const EXCLUDED_LANGUAGES = new Set(["HTML"]);
 const FALLBACK_PATH = path.join(
   process.cwd(),
   "data",
@@ -126,6 +130,7 @@ async function restJson(url) {
 
 function addBytes(totals, name, size, color = null) {
   if (!size || size <= 0) return;
+  if (EXCLUDED_LANGUAGES.has(name)) return;
   const current = totals.get(name) || { name, color: color || null, size: 0 };
   current.size += size;
   if (!current.color && color) current.color = color;
@@ -219,7 +224,7 @@ async function fetchTechnologyBytes() {
   }
 
   return [...totals.values()]
-    .filter((item) => item.size > 0)
+    .filter((item) => item.size > 0 && !EXCLUDED_LANGUAGES.has(item.name))
     .sort((a, b) => b.size - a.size);
 }
 
@@ -352,7 +357,7 @@ function buildSvg(slices, meta) {
 function loadFallbackLanguages() {
   const raw = JSON.parse(fs.readFileSync(FALLBACK_PATH, "utf8"));
   return (raw.languages || [])
-    .filter((item) => item.size > 0)
+    .filter((item) => item.size > 0 && !EXCLUDED_LANGUAGES.has(item.name))
     .map((item) => ({
       name: item.name,
       size: item.size,
@@ -391,7 +396,7 @@ async function main() {
   }
 
   const svg = buildSvg(slices, {
-    repoHint: `Owned repos + *.sql as MySQL + queries/nosql as NoSQL · ${languages.length} technologies`,
+    repoHint: `Owned repos (HTML excluded) + *.sql as MySQL + queries/nosql as NoSQL · ${languages.length} technologies`,
   });
   const distDir = path.join(process.cwd(), "dist");
   fs.mkdirSync(distDir, { recursive: true });
