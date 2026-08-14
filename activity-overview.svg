@@ -14,7 +14,7 @@
       .radar { fill: rgba(249, 115, 22, 0.28); }
     }
   </style>
-  <text class="muted" x="290" y="26" text-anchor="middle" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · 2026 · 852 total</text>
+  <text class="muted" x="290" y="26" text-anchor="middle" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Activity overview · 2026 · 859 total</text>
   <polygon class="ring" points="290.0,192.8 316.3,219.0 290.0,245.3 263.8,219.0" fill="none" stroke-width="1" />
 <polygon class="ring" points="290.0,166.5 342.5,219.0 290.0,271.5 237.5,219.0" fill="none" stroke-width="1" />
 <polygon class="ring" points="290.0,140.3 368.8,219.0 290.0,297.8 211.3,219.0" fill="none" stroke-width="1" />
@@ -23,17 +23,17 @@
 <line x1="290" y1="219" x2="395.0" y2="219.0" stroke="#ea580c" stroke-width="1.5" />
 <line x1="290" y1="219" x2="290.0" y2="324.0" stroke="#ea580c" stroke-width="1.5" />
 <line x1="290" y1="219" x2="185.0" y2="219.0" stroke="#ea580c" stroke-width="1.5" />
-  <polygon class="radar" points="290.0,212.7 296.3,219.0 290.0,228.4 207.1,219.0" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
+  <polygon class="radar" points="290.0,212.7 297.4,219.0 290.0,228.4 208.1,219.0" stroke="#ea580c" stroke-width="2" stroke-linejoin="round" />
   <circle class="dot" cx="290.0" cy="212.7" r="5" stroke="#ea580c" stroke-width="2" />
-<circle class="dot" cx="296.3" cy="219.0" r="5" stroke="#ea580c" stroke-width="2" />
+<circle class="dot" cx="297.4" cy="219.0" r="5" stroke="#ea580c" stroke-width="2" />
 <circle class="dot" cx="290.0" cy="228.4" r="5" stroke="#ea580c" stroke-width="2" />
-<circle class="dot" cx="207.1" cy="219.0" r="5" stroke="#ea580c" stroke-width="2" />
+<circle class="dot" cx="208.1" cy="219.0" r="5" stroke="#ea580c" stroke-width="2" />
   <text class="fg" x="290.0" y="46.0" text-anchor="middle" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">6% Code review</text>
-<text class="muted" x="290.0" y="64.0" text-anchor="middle" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">51 contributions</text>
-<text class="fg" x="481.0" y="219.0" text-anchor="start" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">6% Issues</text>
-<text class="muted" x="481.0" y="237.0" text-anchor="start" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">51 contributions</text>
+<text class="muted" x="290.0" y="64.0" text-anchor="middle" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">52 contributions</text>
+<text class="fg" x="481.0" y="219.0" text-anchor="start" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">7% Issues</text>
+<text class="muted" x="481.0" y="237.0" text-anchor="start" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">60 contributions</text>
 <text class="fg" x="290.0" y="390.0" text-anchor="middle" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">9% Pull requests</text>
 <text class="muted" x="290.0" y="408.0" text-anchor="middle" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">77 contributions</text>
-<text class="fg" x="99.0" y="219.0" text-anchor="end" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">79% Commits</text>
-<text class="muted" x="99.0" y="237.0" text-anchor="end" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">673 contributions</text>
+<text class="fg" x="99.0" y="219.0" text-anchor="end" font-size="14" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">78% Commits</text>
+<text class="muted" x="99.0" y="237.0" text-anchor="end" font-size="12" font-weight="400" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">670 contributions</text>
 </svg>
