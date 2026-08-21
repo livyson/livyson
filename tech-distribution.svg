@@ -18,31 +18,31 @@
   <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top 8</text>
 
   <circle class="halo" cx="250" cy="230" r="148" />
-  <path class="slice" d="M 251.45 92.01 A 138 138 0 0 1 249.90 368.00 L 249.94 308.00 A 78 78 0 0 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
-        <title>Java: 50.2%</title>
+  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 247.31 367.97 L 248.48 307.99 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
+        <title>Java: 50.5%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 247.01 367.97 A 138 138 0 0 1 123.94 286.14 L 178.75 261.73 A 78 78 0 0 0 248.31 307.98 Z" fill="#017CEE" stroke-width="2" opacity="0">
-        <title>Python: 18.3%</title>
+<path class="slice" d="M 244.43 367.89 A 138 138 0 0 1 123.25 284.58 L 178.36 260.85 A 78 78 0 0 0 246.85 307.94 Z" fill="#017CEE" stroke-width="2" opacity="0">
+        <title>Python: 18.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 122.79 283.49 A 138 138 0 0 1 145.69 139.64 L 191.04 178.93 A 78 78 0 0 0 178.10 260.23 Z" fill="#FF694B" stroke-width="2" opacity="0">
-        <title>TypeScript: 18.0%</title>
+<path class="slice" d="M 122.14 281.92 A 138 138 0 0 1 146.17 139.10 L 191.31 178.62 A 78 78 0 0 0 177.73 259.34 Z" fill="#FF694B" stroke-width="2" opacity="0">
+        <title>TypeScript: 17.9%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 147.61 137.48 A 138 138 0 0 1 220.18 95.26 L 233.15 153.84 A 78 78 0 0 0 192.13 177.71 Z" fill="#DC382D" stroke-width="2" opacity="0">
-        <title>JavaScript: 10.2%</title>
+<path class="slice" d="M 148.10 136.94 A 138 138 0 0 1 220.36 95.22 L 233.24 153.82 A 78 78 0 0 0 192.40 177.40 Z" fill="#DC382D" stroke-width="2" opacity="0">
+        <title>JavaScript: 10.1%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.21s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 223.01 94.67 A 138 138 0 0 1 231.36 93.27 L 239.46 152.72 A 78 78 0 0 0 234.74 153.51 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 223.18 94.63 A 138 138 0 0 1 231.46 93.25 L 239.52 152.71 A 78 78 0 0 0 234.84 153.49 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>CSS: 1.3%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.28s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 234.22 92.90 A 138 138 0 0 1 239.35 92.41 L 243.98 152.23 A 78 78 0 0 0 241.08 152.51 Z" fill="#47A248" stroke-width="2" opacity="0">
+<path class="slice" d="M 234.33 92.89 A 138 138 0 0 1 239.41 92.41 L 244.01 152.23 A 78 78 0 0 0 241.14 152.50 Z" fill="#47A248" stroke-width="2" opacity="0">
         <title>NoSQL: 0.9%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.35s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 242.23 92.22 A 138 138 0 0 1 246.64 92.04 L 248.10 152.02 A 78 78 0 0 0 245.61 152.12 Z" fill="#4169E1" stroke-width="2" opacity="0">
+<path class="slice" d="M 242.29 92.22 A 138 138 0 0 1 246.65 92.04 L 248.11 152.02 A 78 78 0 0 0 245.64 152.12 Z" fill="#4169E1" stroke-width="2" opacity="0">
         <title>MySQL: 0.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.42s" dur="0.4s" fill="freeze" />
       </path>
@@ -52,25 +52,25 @@
   
         <circle cx="470" cy="88" r="7" fill="#FF6600" />
         <text class="fg" x="490" y="93" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
-        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">50.2%</text>
+        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">50.5%</text>
         <line class="rule" x1="490" y1="102" x2="860" y2="102" stroke-width="1" />
       
 
         <circle cx="470" cy="122" r="7" fill="#017CEE" />
         <text class="fg" x="490" y="127" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Python</text>
-        <text class="muted" x="860" y="127" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">18.3%</text>
+        <text class="muted" x="860" y="127" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">18.2%</text>
         <line class="rule" x1="490" y1="136" x2="860" y2="136" stroke-width="1" />
       
 
         <circle cx="470" cy="156" r="7" fill="#FF694B" />
         <text class="fg" x="490" y="161" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">TypeScript</text>
-        <text class="muted" x="860" y="161" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">18.0%</text>
+        <text class="muted" x="860" y="161" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">17.9%</text>
         <line class="rule" x1="490" y1="170" x2="860" y2="170" stroke-width="1" />
       
 
         <circle cx="470" cy="190" r="7" fill="#DC382D" />
         <text class="fg" x="490" y="195" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
-        <text class="muted" x="860" y="195" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">10.2%</text>
+        <text class="muted" x="860" y="195" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">10.1%</text>
         <line class="rule" x1="490" y1="204" x2="860" y2="204" stroke-width="1" />
       
 
