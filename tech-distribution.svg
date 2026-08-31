@@ -15,36 +15,40 @@
     }
   </style>
   <text x="36" y="42" fill="#ea580c" font-size="22" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Tech distribution</text>
-  <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top 8</text>
+  <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL/IA by bytes · top 8</text>
 
   <circle class="halo" cx="250" cy="230" r="148" />
-  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 217.24 364.05 L 231.48 305.77 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
-        <title>Java: 54.0%</title>
+  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 217.51 364.12 L 231.64 305.81 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
+        <title>Java: 53.9%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 214.44 363.34 A 138 138 0 0 1 117.19 267.47 L 174.93 251.18 A 78 78 0 0 0 229.90 305.37 Z" fill="#017CEE" stroke-width="2" opacity="0">
+<path class="slice" d="M 214.71 363.41 A 138 138 0 0 1 117.29 267.83 L 174.99 251.38 A 78 78 0 0 0 230.05 305.41 Z" fill="#017CEE" stroke-width="2" opacity="0">
         <title>Python: 16.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 116.43 264.69 A 138 138 0 0 1 149.90 135.00 L 193.42 176.31 A 78 78 0 0 0 174.50 249.60 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 116.52 265.04 A 138 138 0 0 1 149.59 135.33 L 193.25 176.49 A 78 78 0 0 0 174.56 249.81 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>TypeScript: 16.5%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 151.91 132.93 A 138 138 0 0 1 218.05 95.75 L 231.94 154.12 A 78 78 0 0 0 194.56 175.13 Z" fill="#DC382D" stroke-width="2" opacity="0">
-        <title>JavaScript: 9.2%</title>
+<path class="slice" d="M 151.59 133.25 A 138 138 0 0 1 212.67 97.14 L 228.90 154.91 A 78 78 0 0 0 194.38 175.32 Z" fill="#DC382D" stroke-width="2" opacity="0">
+        <title>JavaScript: 8.6%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.21s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 220.87 95.11 A 138 138 0 0 1 228.12 93.75 L 237.63 152.99 A 78 78 0 0 0 233.53 153.76 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 215.46 96.39 A 138 138 0 0 1 222.64 94.74 L 234.54 153.55 A 78 78 0 0 0 230.48 154.48 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>CSS: 1.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.28s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 230.97 93.32 A 138 138 0 0 1 238.22 92.50 L 243.34 152.28 A 78 78 0 0 0 239.25 152.74 Z" fill="#47A248" stroke-width="2" opacity="0">
+<path class="slice" d="M 225.48 94.20 A 138 138 0 0 1 232.68 93.09 L 240.21 152.62 A 78 78 0 0 0 236.14 153.24 Z" fill="#47A248" stroke-width="2" opacity="0">
         <title>NoSQL: 1.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.35s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 241.10 92.29 A 138 138 0 0 1 246.82 92.04 L 248.20 152.02 A 78 78 0 0 0 244.97 152.16 Z" fill="#4169E1" stroke-width="2" opacity="0">
+<path class="slice" d="M 235.55 92.76 A 138 138 0 0 1 241.26 92.28 L 245.06 152.16 A 78 78 0 0 0 241.83 152.43 Z" fill="#4169E1" stroke-width="2" opacity="0">
         <title>MySQL: 1.0%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.42s" dur="0.4s" fill="freeze" />
+      </path>
+<path class="slice" d="M 244.14 92.12 A 138 138 0 0 1 246.82 92.04 L 248.21 152.02 A 78 78 0 0 0 246.69 152.07 Z" fill="#8B5CF6" stroke-width="2" opacity="0">
+        <title>IA: 0.6%</title>
+        <animate attributeName="opacity" from="0" to="1" begin="0.49s" dur="0.4s" fill="freeze" />
       </path>
   <text class="fg" x="250" y="222" text-anchor="middle" font-size="28" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">54%</text>
   <text class="muted" x="250" y="248" text-anchor="middle" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
@@ -52,7 +56,7 @@
   
         <circle cx="470" cy="88" r="7" fill="#FF6600" />
         <text class="fg" x="490" y="93" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
-        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">54.0%</text>
+        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">53.9%</text>
         <line class="rule" x1="490" y1="102" x2="860" y2="102" stroke-width="1" />
       
 
@@ -70,7 +74,7 @@
 
         <circle cx="470" cy="190" r="7" fill="#DC382D" />
         <text class="fg" x="490" y="195" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">JavaScript</text>
-        <text class="muted" x="860" y="195" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">9.2%</text>
+        <text class="muted" x="860" y="195" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">8.6%</text>
         <line class="rule" x1="490" y1="204" x2="860" y2="204" stroke-width="1" />
       
 
@@ -92,16 +96,16 @@
         <line class="rule" x1="490" y1="306" x2="860" y2="306" stroke-width="1" />
       
 
-        <circle cx="470" cy="326" r="7" fill="#47A248" />
-        <text class="fg" x="490" y="331" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Shell</text>
-        <text class="muted" x="860" y="331" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.2%</text>
+        <circle cx="470" cy="326" r="7" fill="#8B5CF6" />
+        <text class="fg" x="490" y="331" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">IA</text>
+        <text class="muted" x="860" y="331" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.6%</text>
         <line class="rule" x1="490" y1="340" x2="860" y2="340" stroke-width="1" />
       
 
         <circle cx="470" cy="360" r="7" fill="#DC382D" />
         <text class="fg" x="490" y="365" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Other</text>
-        <text class="muted" x="860" y="365" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.0%</text>
+        <text class="muted" x="860" y="365" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">0.2%</text>
         <line class="rule" x1="490" y1="374" x2="860" y2="374" stroke-width="1" />
       
-  <text class="muted" x="36" y="416" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Owned repos (HTML excluded) + *.sql as MySQL + queries/nosql as NoSQL · 9 technologies</text>
+  <text class="muted" x="36" y="416" font-size="11" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Owned repos (HTML excluded) + *.sql as MySQL + queries/nosql as NoSQL + AI APIs as IA · 10 technologies</text>
 </svg>
