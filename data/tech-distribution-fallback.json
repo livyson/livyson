@@ -5,6 +5,7 @@
     { "name": "Python", "size": 99714, "color": "#017CEE" },
     { "name": "JavaScript", "size": 27990, "color": "#DC382D" },
     { "name": "NoSQL", "size": 5248, "color": "#47A248" },
-    { "name": "MySQL", "size": 4373, "color": "#4169E1" }
+    { "name": "MySQL", "size": 4373, "color": "#4169E1" },
+    { "name": "IA", "size": 17543, "color": "#8B5CF6" }
   ]
 }

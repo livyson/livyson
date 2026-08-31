@@ -97,6 +97,10 @@
 
 ![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=black)
 
+**AI**
+
+![IA](https://img.shields.io/badge/IA-8B5CF6?style=for-the-badge&logo=googlegemini&logoColor=white)
+
 </div>
 
 <br/>

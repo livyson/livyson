@@ -6,6 +6,8 @@
  * Além das linguagens do GitHub Linguist, inclui:
  * - MySQL  → arquivos *.sql (Linguist marca SQL como "data" e não entra nas stats)
  * - NoSQL  → scripts Mongo em queries/nosql/*.js (senão viram só JavaScript)
+ * - IA     → uso real de API/pipeline de modelo (Gemini, OpenAI, Anthropic, etc.)
+ *            Não conta código apenas escrito com Copilot/Cursor.
  *
  * HTML é excluído de propósito (markup de README/templates distorce o gráfico).
  */
@@ -88,11 +90,110 @@ const CUSTOM_COLORS = {
   MySQL: "#4169E1", // PostgreSQL
   SQL: "#4169E1",
   NoSQL: "#47A248", // MongoDB
+  IA: "#8B5CF6",
   Java: "#FF6600", // RabbitMQ
   Python: "#017CEE", // Airflow
   JavaScript: "#DC382D", // Redis
   TypeScript: "#FF694B", // dbt
 };
+
+const AI_ASSISTED_PATHS = [
+  /(^|\/)\.cursor(\/|$)/,
+  /(^|\/)\.cursorrules$/,
+  /(^|\/)AGENTS\.md$/i,
+  /copilot-instructions/i,
+  /(^|\/)\.github\/(copilot|instructions|prompts)\//i,
+];
+
+const AI_OUTPUT_PATHS = [/(^|\/)content\/articles\/.*\.md$/i];
+
+const AI_API_USAGE = [
+  /\bGEMINI_API_KEY\b/,
+  /\bOPENAI_API_KEY\b/,
+  /\bANTHROPIC_API_KEY\b/,
+  /\bCLAUDE_API_KEY\b/,
+  /\bGROQ_API_KEY\b/,
+  /\bMISTRAL_API_KEY\b/,
+  /generativelanguage\.googleapis\.com/,
+  /api\.openai\.com/,
+  /api\.anthropic\.com/,
+  /ai\.google\.dev/,
+  /aistudio\.google/,
+  /@google\/generative-ai/,
+  /@google\/genai/,
+  /google-generativeai/,
+  /google\.generativeai/,
+  /GoogleGenerativeAI/,
+  /GoogleGenAI/,
+  /from ["']openai["']/,
+  /from openai import/,
+  /require\(["']openai["']\)/,
+  /from anthropic import/,
+  /new OpenAI\s*\(/,
+  /\bAnthropic\s*\(/,
+  /openai\.chat/,
+  /chat\.completions/,
+  /@langchain\//,
+  /from langchain/,
+  /bedrock-runtime/,
+  /["']@google\/generative-ai["']/,
+  /["']openai["']\s*:/,
+  /["']anthropic["']\s*:/,
+];
+
+const LANGUAGE_BY_EXTENSION = {
+  ".mjs": "JavaScript",
+  ".js": "JavaScript",
+  ".cjs": "JavaScript",
+  ".ts": "TypeScript",
+  ".tsx": "TypeScript",
+  ".py": "Python",
+  ".java": "Java",
+  ".rb": "Ruby",
+};
+
+function isAiAssistedEditorPath(filePath) {
+  return AI_ASSISTED_PATHS.some((pattern) => pattern.test(filePath));
+}
+
+function isAiGeneratedOutputPath(filePath) {
+  return AI_OUTPUT_PATHS.some((pattern) => pattern.test(filePath));
+}
+
+function isAiCandidatePath(filePath) {
+  if (isAiAssistedEditorPath(filePath) || isAiGeneratedOutputPath(filePath)) {
+    return false;
+  }
+  // O próprio detector menciona nomes de APIs e não deve contar como uso de IA.
+  if (/(^|\/)generate-tech-distribution\.mjs$/.test(filePath)) {
+    return false;
+  }
+
+  return (
+    /(^|\/)(package\.json|requirements[^/]*\.txt|pyproject\.toml)$/i.test(
+      filePath,
+    ) ||
+    /gemini|openai|anthropic|langchain|huggingface|vertex.?ai|bedrock|chatgpt|groq|mistral|ollama/i.test(
+      filePath,
+    ) ||
+    /(generate[-_].*article|weekly-article)/i.test(filePath) ||
+    /(^|\/)(llm|genai|ai-client|ai_client)s?\./i.test(filePath)
+  );
+}
+
+function usesAiApi(content) {
+  return AI_API_USAGE.some((pattern) => pattern.test(content));
+}
+
+function languageForPath(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  return LANGUAGE_BY_EXTENSION[ext] || null;
+}
+
+function contentsUrl(repoName, filePath, ref) {
+  const encoded = filePath.split("/").map(encodeURIComponent).join("/");
+  return `https://api.github.com/repos/${username}/${repoName}/contents/${encoded}?ref=${encodeURIComponent(ref)}`;
+}
 
 async function graphql(variables) {
   const res = await fetch("https://api.github.com/graphql", {
@@ -128,6 +229,30 @@ async function restJson(url) {
   return res.json();
 }
 
+async function restJsonOrNull(url) {
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
+      "User-Agent": "livyson-tech-distribution",
+    },
+  });
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`GitHub REST failed ${res.status}: ${body}`);
+  }
+  return res.json();
+}
+
+async function fetchFileText(repoName, filePath, ref) {
+  const payload = await restJsonOrNull(contentsUrl(repoName, filePath, ref));
+  if (!payload || payload.type !== "file" || !payload.content) return "";
+  return Buffer.from(payload.content.replaceAll("\n", ""), "base64").toString(
+    "utf8",
+  );
+}
+
 function addBytes(totals, name, size, color = null) {
   if (!size || size <= 0) return;
   if (EXCLUDED_LANGUAGES.has(name)) return;
@@ -138,20 +263,62 @@ function addBytes(totals, name, size, color = null) {
   totals.set(name, current);
 }
 
+async function ensureOwnedRepo(repoNodes, name) {
+  if (repoNodes.some((repo) => repo.name === name)) return;
+
+  try {
+    const repo = await restJson(
+      `https://api.github.com/repos/${username}/${name}`,
+    );
+    if (repo.archived || repo.fork) return;
+    const branch = repo.default_branch;
+    const ref = await restJson(
+      `https://api.github.com/repos/${username}/${name}/git/ref/heads/${branch}`,
+    );
+    repoNodes.push({
+      name: repo.name,
+      isArchived: false,
+      defaultBranchRef: {
+        name: branch,
+        target: { oid: ref.object?.sha },
+      },
+      languages: { edges: [] },
+    });
+    console.log(`Included extra owned repo: ${name}`);
+  } catch (error) {
+    console.warn(`Could not include extra repo ${name}: ${error.message}`);
+  }
+}
+
+function fallbackIaBytes() {
+  try {
+    const ia = loadFallbackLanguages().find((item) => item.name === "IA");
+    return ia?.size || 0;
+  } catch {
+    return 0;
+  }
+}
+
 async function fetchRepoTreesExtras(repos) {
   let mysqlBytes = 0;
   let nosqlBytes = 0;
+  let aiBytes = 0;
+  const aiLanguageDeduct = new Map();
+  const aiFiles = [];
   let scanned = 0;
 
   for (const repo of repos) {
     const sha = repo.defaultBranchRef?.target?.oid;
-    if (!sha) continue;
+    const ref = repo.defaultBranchRef?.name;
+    if (!sha || !ref) continue;
 
     try {
       const tree = await restJson(
         `https://api.github.com/repos/${username}/${repo.name}/git/trees/${sha}?recursive=1`,
       );
       scanned += 1;
+      const aiCandidates = [];
+
       for (const item of tree.tree || []) {
         if (item.type !== "blob" || !item.path || !item.size) continue;
         const filePath = item.path.replaceAll("\\", "/");
@@ -166,13 +333,43 @@ async function fetchRepoTreesExtras(repos) {
         ) {
           nosqlBytes += item.size;
         }
+        if (item.size <= 500_000 && isAiCandidatePath(filePath)) {
+          aiCandidates.push({ path: filePath, size: item.size });
+        }
+      }
+
+      for (const candidate of aiCandidates) {
+        try {
+          const content = await fetchFileText(repo.name, candidate.path, ref);
+          if (!usesAiApi(content)) continue;
+          aiBytes += candidate.size;
+          aiFiles.push(`${repo.name}/${candidate.path}`);
+          const language = languageForPath(candidate.path);
+          if (language) {
+            aiLanguageDeduct.set(
+              language,
+              (aiLanguageDeduct.get(language) || 0) + candidate.size,
+            );
+          }
+        } catch (error) {
+          console.warn(
+            `Skip AI file ${repo.name}/${candidate.path}: ${error.message}`,
+          );
+        }
       }
     } catch (error) {
       console.warn(`Skip tree ${repo.name}: ${error.message}`);
     }
   }
 
-  return { mysqlBytes, nosqlBytes, scanned };
+  return {
+    mysqlBytes,
+    nosqlBytes,
+    aiBytes,
+    aiLanguageDeduct,
+    aiFiles,
+    scanned,
+  };
 }
 
 async function fetchTechnologyBytes() {
@@ -195,12 +392,28 @@ async function fetchTechnologyBytes() {
     pages += 1;
   } while (cursor && pages < 5);
 
+  await ensureOwnedRepo(repoNodes, "professional-site");
+  console.log(
+    `Owned repos: ${repoNodes.length} · professional-site=${repoNodes.some((repo) => repo.name === "professional-site")}`,
+  );
+
   // Linguist não inclui SQL (type: data). Contamos *.sql como MySQL
   // e queries/nosql/*.js como NoSQL (em vez de só JavaScript).
   const extras = await fetchRepoTreesExtras(repoNodes);
   console.log(
-    `Tree scan: repos=${extras.scanned} mysqlBytes=${extras.mysqlBytes} nosqlBytes=${extras.nosqlBytes}`,
+    `Tree scan: repos=${extras.scanned} mysqlBytes=${extras.mysqlBytes} nosqlBytes=${extras.nosqlBytes} aiBytes=${extras.aiBytes}`,
   );
+  if (extras.aiFiles.length) {
+    console.log(`IA files: ${extras.aiFiles.join(", ")}`);
+  }
+  if (extras.aiBytes === 0) {
+    extras.aiBytes = fallbackIaBytes();
+    if (extras.aiBytes > 0) {
+      console.warn(
+        `No live AI API files found; using fallback IA bytes=${extras.aiBytes}`,
+      );
+    }
+  }
 
   if (extras.mysqlBytes > 0) {
     addBytes(totals, "MySQL", extras.mysqlBytes, CUSTOM_COLORS.MySQL);
@@ -213,6 +426,16 @@ async function fetchTechnologyBytes() {
       js.size = Math.max(0, js.size - extras.nosqlBytes);
       if (js.size === 0) totals.delete("JavaScript");
       else totals.set("JavaScript", js);
+    }
+  }
+  if (extras.aiBytes > 0) {
+    addBytes(totals, "IA", extras.aiBytes, CUSTOM_COLORS.IA);
+    for (const [language, size] of extras.aiLanguageDeduct) {
+      const current = totals.get(language);
+      if (!current) continue;
+      current.size = Math.max(0, current.size - size);
+      if (current.size === 0) totals.delete(language);
+      else totals.set(language, current);
     }
   }
 
@@ -232,8 +455,13 @@ function toSlices(languages) {
   const total = languages.reduce((sum, item) => sum + item.size, 0);
   if (total === 0) return { total: 0, slices: [] };
 
-  const top = languages.slice(0, TOP_N);
-  const rest = languages.slice(TOP_N);
+  const ia = languages.find((item) => item.name === "IA");
+  const withoutIa = languages.filter((item) => item.name !== "IA");
+  const topSlots = ia ? Math.max(1, TOP_N - 1) : TOP_N;
+  const top = ia
+    ? [...withoutIa.slice(0, topSlots), ia].sort((a, b) => b.size - a.size)
+    : withoutIa.slice(0, topSlots);
+  const rest = withoutIa.slice(topSlots);
   const restSize = rest.reduce((sum, item) => sum + item.size, 0);
 
   const slices = top.map((item, index) => ({
@@ -341,7 +569,7 @@ function buildSvg(slices, meta) {
     }
   </style>
   <text x="36" y="42" fill="#ea580c" font-size="22" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Tech distribution</text>
-  <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL by bytes · top ${Math.min(TOP_N, slices.length)}</text>
+  <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL/IA by bytes · top ${Math.min(TOP_N, slices.length)}</text>
 
   <circle class="halo" cx="${cx}" cy="${cy}" r="${outerR + 10}" />
   ${pathEls.join("\n")}
@@ -396,7 +624,7 @@ async function main() {
   }
 
   const svg = buildSvg(slices, {
-    repoHint: `Owned repos (HTML excluded) + *.sql as MySQL + queries/nosql as NoSQL · ${languages.length} technologies`,
+    repoHint: `Owned repos (HTML excluded) + *.sql as MySQL + queries/nosql as NoSQL + AI APIs as IA · ${languages.length} technologies`,
   });
   const distDir = path.join(process.cwd(), "dist");
   fs.mkdirSync(distDir, { recursive: true });
