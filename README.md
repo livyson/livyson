@@ -68,8 +68,8 @@
 ### 🛠️ Tech Stack
 
 <table align="center" width="100%">
-  <tr>
-    <td align="center" valign="top" width="50%">
+<tr>
+<td align="center" valign="top" width="50%">
 
 **Languages & Runtimes**
 
@@ -79,8 +79,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
 
-    </td>
-    <td align="center" valign="top" width="50%">
+</td>
+<td align="center" valign="top" width="50%">
 
 **Backend & APIs**
 
@@ -89,10 +89,10 @@
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
 ![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
 
-    </td>
-  </tr>
-  <tr>
-    <td align="center" valign="top" width="50%">
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="50%">
 
 **Data & Messaging**
 
@@ -103,8 +103,8 @@
 ![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
 ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)
 
-    </td>
-    <td align="center" valign="top" width="50%">
+</td>
+<td align="center" valign="top" width="50%">
 
 **Cloud & DevOps**
 
@@ -115,8 +115,8 @@
 ![Claude API](https://img.shields.io/badge/Claude%20API-D97757?style=for-the-badge&logo=claude&logoColor=white)
 ![GPT API](https://img.shields.io/badge/GPT%20API-412991?style=for-the-badge&logo=openai&logoColor=white)
 
-    </td>
-  </tr>
+</td>
+</tr>
 </table>
 
 <br/>
