@@ -68,6 +68,7 @@
 ### 🛠️ Tech Stack
 
 <table align="center" width="100%">
+<thead>
 <tr>
 <td align="center" valign="top" width="50%">
 
@@ -91,6 +92,8 @@
 
 </td>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td align="center" valign="top" width="50%">
 
@@ -117,6 +120,7 @@
 
 </td>
 </tr>
+</tbody>
 </table>
 
 <br/>
