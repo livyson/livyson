@@ -108,16 +108,11 @@
 
 </td>
 <td align="center" valign="top" width="50%">
-
-**Cloud & DevOps**
-
-![Google Cloud Platform](https://img.shields.io/badge/Google%20Cloud%20Platform-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)
-
-**AI**
-
-![Claude API](https://img.shields.io/badge/Claude%20API-D97757?style=for-the-badge&logo=claude&logoColor=white)
-![GPT API](https://img.shields.io/badge/GPT%20API-412991?style=for-the-badge&logo=openai&logoColor=white)
-
+<strong>Cloud & DevOps</strong><br>
+<img src="https://img.shields.io/badge/Google%20Cloud%20Platform-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud Platform" /><br>
+<strong>AI</strong><br>
+<img src="https://img.shields.io/badge/Claude%20API-D97757?style=for-the-badge&logo=claude&logoColor=white" alt="Claude API" />
+<img src="https://img.shields.io/badge/GPT%20API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="GPT API" />
 </td>
 </tr>
 </tbody>
