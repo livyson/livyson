@@ -99,7 +99,8 @@
 
 **AI**
 
-![IA](https://img.shields.io/badge/IA-8B5CF6?style=for-the-badge&logo=googlegemini&logoColor=white)
+![Claude API](https://img.shields.io/badge/Claude%20API-D97757?style=for-the-badge&logo=claude&logoColor=white)
+![GPT API](https://img.shields.io/badge/GPT%20API-412991?style=for-the-badge&logo=openai&logoColor=white)
 
 </div>
 
