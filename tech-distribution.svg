@@ -18,39 +18,39 @@
   <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL/IA by bytes · top 8</text>
 
   <circle class="halo" cx="250" cy="230" r="148" />
-  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 242.50 367.80 L 245.76 307.88 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
+  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 242.84 367.81 L 245.95 307.89 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
         <title>Java: 51.0%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 239.62 367.61 A 138 138 0 0 1 126.14 290.85 L 179.99 264.40 A 78 78 0 0 0 244.13 307.78 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 239.95 367.63 A 138 138 0 0 1 126.34 291.26 L 180.11 264.62 A 78 78 0 0 0 244.32 307.79 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>TypeScript: 16.9%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 124.89 288.25 A 138 138 0 0 1 129.16 163.36 L 181.70 192.33 A 78 78 0 0 0 179.29 262.92 Z" fill="#017CEE" stroke-width="2" opacity="0">
+<path class="slice" d="M 125.09 288.66 A 138 138 0 0 1 128.89 163.84 L 181.55 192.61 A 78 78 0 0 0 179.40 263.15 Z" fill="#017CEE" stroke-width="2" opacity="0">
         <title>Python: 15.3%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 130.58 160.84 A 138 138 0 0 1 176.55 113.17 L 208.49 163.96 A 78 78 0 0 0 182.50 190.91 Z" fill="#DC382D" stroke-width="2" opacity="0">
+<path class="slice" d="M 130.30 161.32 A 138 138 0 0 1 176.04 113.49 L 208.20 164.15 A 78 78 0 0 0 182.35 191.18 Z" fill="#DC382D" stroke-width="2" opacity="0">
         <title>JavaScript: 8.0%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.21s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 179.02 111.66 A 138 138 0 0 1 210.48 97.78 L 227.66 155.27 A 78 78 0 0 0 209.88 163.11 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 178.50 111.97 A 138 138 0 0 1 209.87 97.96 L 227.32 155.37 A 78 78 0 0 0 209.58 163.29 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>C: 4.3%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.28s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 213.26 96.98 A 138 138 0 0 1 220.25 95.24 L 233.19 153.83 A 78 78 0 0 0 229.23 154.82 Z" fill="#47A248" stroke-width="2" opacity="0">
+<path class="slice" d="M 212.65 97.15 A 138 138 0 0 1 220.08 95.28 L 233.09 153.86 A 78 78 0 0 0 228.89 154.91 Z" fill="#47A248" stroke-width="2" opacity="0">
         <title>NoSQL: 1.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.35s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 223.08 94.65 A 138 138 0 0 1 229.50 93.53 L 238.41 152.87 A 78 78 0 0 0 234.79 153.50 Z" fill="#4169E1" stroke-width="2" opacity="0">
+<path class="slice" d="M 222.91 94.69 A 138 138 0 0 1 229.31 93.56 L 238.31 152.88 A 78 78 0 0 0 234.69 153.52 Z" fill="#4169E1" stroke-width="2" opacity="0">
         <title>CSS: 1.1%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.42s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 232.36 93.13 A 138 138 0 0 1 236.29 92.68 L 242.25 152.39 A 78 78 0 0 0 240.03 152.64 Z" fill="#8B5CF6" stroke-width="2" opacity="0">
+<path class="slice" d="M 232.17 93.16 A 138 138 0 0 1 236.10 92.70 L 242.14 152.40 A 78 78 0 0 0 239.92 152.65 Z" fill="#8B5CF6" stroke-width="2" opacity="0">
         <title>IA: 0.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.49s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 239.17 92.43 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 243.88 152.24 Z" fill="#DC382D" stroke-width="2" opacity="0">
+<path class="slice" d="M 238.98 92.44 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 243.77 152.25 Z" fill="#DC382D" stroke-width="2" opacity="0">
         <title>Other: 1.4%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.56s" dur="0.4s" fill="freeze" />
       </path>
