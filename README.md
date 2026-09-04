@@ -32,9 +32,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/livyson/livyson/3729998fc52123e7e39b6e57f41a1e9b36e79677/pacman-contribution-graph-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/livyson/livyson/3729998fc52123e7e39b6e57f41a1e9b36e79677/pacman-contribution-graph.svg">
-  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/livyson/livyson/3729998fc52123e7e39b6e57f41a1e9b36e79677/pacman-contribution-graph.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/livyson/livyson/9a60551f0bb7c973174fcbd5015d80d2a8160024/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/livyson/livyson/9a60551f0bb7c973174fcbd5015d80d2a8160024/pacman-contribution-graph.svg">
+  <img alt="pacman contribution graph" src="https://raw.githubusercontent.com/livyson/livyson/9a60551f0bb7c973174fcbd5015d80d2a8160024/pacman-contribution-graph.svg">
 </picture>
 
 </div>
