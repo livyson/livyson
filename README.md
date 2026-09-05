@@ -45,11 +45,11 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/671f874b61a45a773311cd5273bf021352f6788b/contribution-graph.svg" width="100%" alt="biweekly contribution graph" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/e42e0b37f92eb7484e71153d7755e09f7bbb01b4/contribution-graph.svg" width="100%" alt="biweekly contribution graph" />
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/671f874b61a45a773311cd5273bf021352f6788b/activity-overview.svg" width="580" alt="activity overview" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/e42e0b37f92eb7484e71153d7755e09f7bbb01b4/activity-overview.svg" width="580" alt="activity overview" />
 
 </div>
 
@@ -59,7 +59,7 @@
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/livyson/livyson/671f874b61a45a773311cd5273bf021352f6788b/tech-distribution.svg" width="900" alt="technology distribution pie chart" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/e42e0b37f92eb7484e71153d7755e09f7bbb01b4/tech-distribution.svg" width="900" alt="technology distribution pie chart" />
 
 </div>
 
