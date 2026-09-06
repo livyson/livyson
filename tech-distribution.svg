@@ -18,39 +18,39 @@
   <text class="muted" x="36" y="66" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Languages + MySQL/NoSQL/IA by bytes · top 8</text>
 
   <circle class="halo" cx="250" cy="230" r="148" />
-  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 234.44 367.12 L 241.20 307.50 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
-        <title>Java: 52.0%</title>
+  <path class="slice" d="M 251.45 92.01 A 138 138 0 1 1 232.41 366.87 L 240.06 307.36 A 78 78 0 1 0 250.82 152.00 Z" fill="#FF6600" stroke-width="2" opacity="0">
+        <title>Java: 52.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.00s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 231.57 366.76 A 138 138 0 0 1 124.25 286.85 L 178.93 262.13 A 78 78 0 0 0 239.58 307.30 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 229.55 366.48 A 138 138 0 0 1 123.71 285.63 L 178.62 261.44 A 78 78 0 0 0 238.44 307.14 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>TypeScript: 16.4%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.07s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 123.09 284.21 A 138 138 0 0 1 129.81 162.19 L 182.07 191.67 A 78 78 0 0 0 178.27 260.64 Z" fill="#017CEE" stroke-width="2" opacity="0">
+<path class="slice" d="M 122.57 282.97 A 138 138 0 0 1 130.16 161.57 L 182.26 191.32 A 78 78 0 0 0 177.97 259.94 Z" fill="#017CEE" stroke-width="2" opacity="0">
         <title>Python: 14.9%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.14s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 131.26 159.69 A 138 138 0 0 1 176.21 113.39 L 208.29 164.09 A 78 78 0 0 0 182.88 190.26 Z" fill="#DC382D" stroke-width="2" opacity="0">
+<path class="slice" d="M 131.62 159.08 A 138 138 0 0 1 176.52 113.19 L 208.47 163.98 A 78 78 0 0 0 183.09 189.91 Z" fill="#DC382D" stroke-width="2" opacity="0">
         <title>JavaScript: 7.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.21s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 178.66 111.87 A 138 138 0 0 1 209.19 98.17 L 226.93 155.49 A 78 78 0 0 0 209.68 163.23 Z" fill="#FF694B" stroke-width="2" opacity="0">
+<path class="slice" d="M 178.98 111.68 A 138 138 0 0 1 209.38 98.11 L 227.04 155.46 A 78 78 0 0 0 209.86 163.12 Z" fill="#FF694B" stroke-width="2" opacity="0">
         <title>C: 4.2%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.28s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 211.96 97.35 A 138 138 0 0 1 220.06 95.29 L 233.08 153.86 A 78 78 0 0 0 228.50 155.02 Z" fill="#47A248" stroke-width="2" opacity="0">
+<path class="slice" d="M 212.15 97.29 A 138 138 0 0 1 220.19 95.26 L 233.15 153.84 A 78 78 0 0 0 228.61 154.99 Z" fill="#47A248" stroke-width="2" opacity="0">
         <title>NoSQL: 1.3%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.35s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 222.88 94.69 A 138 138 0 0 1 229.07 93.60 L 238.17 152.90 A 78 78 0 0 0 234.67 153.52 Z" fill="#4169E1" stroke-width="2" opacity="0">
+<path class="slice" d="M 223.02 94.66 A 138 138 0 0 1 229.16 93.58 L 238.22 152.89 A 78 78 0 0 0 234.75 153.50 Z" fill="#4169E1" stroke-width="2" opacity="0">
         <title>CSS: 1.1%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.42s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 231.93 93.19 A 138 138 0 0 1 235.69 92.74 L 241.91 152.42 A 78 78 0 0 0 239.78 152.67 Z" fill="#8B5CF6" stroke-width="2" opacity="0">
+<path class="slice" d="M 232.02 93.18 A 138 138 0 0 1 235.75 92.74 L 241.94 152.42 A 78 78 0 0 0 239.84 152.66 Z" fill="#8B5CF6" stroke-width="2" opacity="0">
         <title>IA: 0.8%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.49s" dur="0.4s" fill="freeze" />
       </path>
-<path class="slice" d="M 238.56 92.47 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 243.54 152.27 Z" fill="#DC382D" stroke-width="2" opacity="0">
+<path class="slice" d="M 238.63 92.47 A 138 138 0 0 1 248.55 92.01 L 249.18 152.00 A 78 78 0 0 0 243.57 152.27 Z" fill="#DC382D" stroke-width="2" opacity="0">
         <title>Other: 1.5%</title>
         <animate attributeName="opacity" from="0" to="1" begin="0.56s" dur="0.4s" fill="freeze" />
       </path>
@@ -60,7 +60,7 @@
   
         <circle cx="470" cy="88" r="7" fill="#FF6600" />
         <text class="fg" x="490" y="93" font-size="15" font-weight="600" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">Java</text>
-        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">52.0%</text>
+        <text class="muted" x="860" y="93" text-anchor="end" font-size="14" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">52.2%</text>
         <line class="rule" x1="490" y1="102" x2="860" y2="102" stroke-width="1" />
       
 
