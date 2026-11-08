@@ -67,56 +67,37 @@
 
 ### 🛠️ Tech Stack
 
-<table align="center" width="100%">
-<thead>
-<tr>
-<td align="center" valign="top" width="50%">
+<div align="center">
 
-**Languages & Runtimes**
+<sub><b>Languages & Runtimes</b></sub><br/>
+<img src="https://skillicons.dev/icons?i=java" width="48" height="48" alt="Java" title="Java" />
+<img src="https://skillicons.dev/icons?i=py" width="48" height="48" alt="Python" title="Python" />
+<img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript" title="TypeScript" />
+<img src="https://skillicons.dev/icons?i=js" width="48" height="48" alt="JavaScript" title="JavaScript" />
+<img src="https://skillicons.dev/icons?i=ruby" width="48" height="48" alt="Ruby" title="Ruby" />
+<br/><br/>
+<sub><b>Backend & APIs</b></sub><br/>
+<img src="https://skillicons.dev/icons?i=spring" width="48" height="48" alt="Spring Boot" title="Spring Boot" />
+<img src="assets/icons/springsecurity.svg" width="48" height="48" alt="Spring Security" title="Spring Security" />
+<img src="https://skillicons.dev/icons?i=hibernate" width="48" height="48" alt="Hibernate" title="Hibernate" />
+<img src="https://skillicons.dev/icons?i=graphql" width="48" height="48" alt="GraphQL" title="GraphQL" />
+<br/><br/>
+<sub><b>Data & Messaging</b></sub><br/>
+<img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="PostgreSQL" title="PostgreSQL" />
+<img src="https://skillicons.dev/icons?i=mongodb" width="48" height="48" alt="MongoDB" title="MongoDB" />
+<img src="https://skillicons.dev/icons?i=redis" width="48" height="48" alt="Redis" title="Redis" />
+<img src="https://skillicons.dev/icons?i=rabbitmq" width="48" height="48" alt="RabbitMQ" title="RabbitMQ" />
+<img src="assets/icons/dbt.svg" width="48" height="48" alt="dbt" title="dbt" />
+<img src="assets/icons/airflow.svg" width="48" height="48" alt="Airflow" title="Airflow" />
+<br/><br/>
+<sub><b>Cloud & DevOps</b></sub><br/>
+<img src="https://skillicons.dev/icons?i=gcp" width="48" height="48" alt="Google Cloud Platform" title="Google Cloud Platform" />
+<br/><br/>
+<sub><b>AI</b></sub><br/>
+<img src="assets/icons/claude.svg" width="48" height="48" alt="Claude API" title="Claude API" />
+<img src="assets/icons/openai.svg" width="48" height="48" alt="GPT API" title="GPT API" />
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3572A5?style=for-the-badge&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Ruby](https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white)
-
-</td>
-<td align="center" valign="top" width="50%">
-
-**Backend & APIs**
-
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
-![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
-
-</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center" valign="top" width="50%">
-
-**Data & Messaging**
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
-![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=for-the-badge&logo=apacheairflow&logoColor=white)
-
-</td>
-<td align="center" valign="top" width="50%">
-<strong>Cloud & DevOps</strong><br>
-<img src="https://img.shields.io/badge/Google%20Cloud%20Platform-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white" alt="Google Cloud Platform" /><br>
-<strong>AI</strong><br>
-<img src="https://img.shields.io/badge/Claude%20API-D97757?style=for-the-badge&logo=claude&logoColor=white" alt="Claude API" />
-<img src="https://img.shields.io/badge/GPT%20API-412991?style=for-the-badge&logo=openai&logoColor=white" alt="GPT API" />
-</td>
-</tr>
-</tbody>
-</table>
+</div>
 
 <br/>
 
