@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=ED702D&height=200&section=header&text=Hello,%20I'm%20Livyson!%20🚀&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" alt="header" />
+<img src="https://capsule-render.vercel.app/api?type=wave&color=ED702D&height=200&section=header&text=Hello,%20I'm%20Livyson!%20🚀&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=28" width="100%" alt="header" />
 
 <a href="https://github.com/livyson">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=F97316&center=true&vCenter=true&width=650&lines=Head+of+Engineering+%26+Product;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams" alt="typing" />
@@ -103,4 +103,4 @@
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=ED702D&height=120&section=footer" width="100%" alt="footer" />
+<img src="https://capsule-render.vercel.app/api?type=wave&color=ED702D&height=120&section=footer" width="100%" alt="footer" />
