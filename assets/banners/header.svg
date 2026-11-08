@@ -11,10 +11,11 @@
       .text {   font-size: 42px;   font-weight: 700;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } .desc {   font-size: 20px;   font-weight: 500;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } 
       .text, .desc {   animation: fadeIn 1.2s ease-in-out forwards;  } @keyframes fadeIn {   from {     opacity: 0;   }   to {     opacity: 1;   }  } 
     </style>
+<defs><linearGradient id="photoGrad" x1="0%" y1="0%" x2="100%" y2="30%"><stop offset="0%" stop-color="#FC7943"/><stop offset="50%" stop-color="#FEA547"/><stop offset="100%" stop-color="#FDD051"/></linearGradient></defs>
         
         
       <g transform="translate(427, 100) scale(1, 1) translate(-427, -100)">
-        <path d="" fill="#ED702D" opacity="0.45" >
+        <path d="" fill="url(#photoGrad)" opacity="0.45" >
           <animate
               attributeName="d"
               dur="20s"
@@ -26,7 +27,7 @@
               values="M0 0L 0 120Q 213.5 160 427 130T 854 155L 854 0 Z;M0 0L 0 145Q 213.5 160 427 140T 854 130L 854 0 Z;M0 0L 0 165Q 213.5 135 427 165T 854 130L 854 0 Z;M0 0L 0 120Q 213.5 160 427 130T 854 155L 854 0 Z">
           </animate>
         </path>
-        <path d="" fill="#ED702D" opacity="1" >
+        <path d="" fill="url(#photoGrad)" opacity="1" >
           <animate
             attributeName="d"
             dur="20s"
@@ -39,7 +40,7 @@
           </animate>
         </path>
       </g>
-         <text text-anchor="middle" dominant-baseline="middle" x="50%" y="38%" class="text" style="fill:#ffffff;" stroke="#none" stroke-width="1" >Hello, I'm Livyson! 🚀</text>
+         <text text-anchor="middle" dominant-baseline="middle" x="50%" y="38%" class="text" style="fill:#ffffff;filter:drop-shadow(0 1px 2px rgba(150,60,0,.35));" stroke="#none" stroke-width="1" >Hello, I'm Livyson! 🚀</text>
         
       </svg>
     

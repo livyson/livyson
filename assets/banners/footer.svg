@@ -11,10 +11,11 @@
       .text {   font-size: 70px;   font-weight: 700;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } .desc {   font-size: 20px;   font-weight: 500;   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;  } path {   transform: rotate(180deg);   transform-origin: 50% 50%;  } 
       .text, .desc {   animation: fadeIn 1.2s ease-in-out forwards;  } @keyframes fadeIn {   from {     opacity: 0;   }   to {     opacity: 1;   }  } 
     </style>
+<defs><linearGradient id="photoGrad" x1="100%" y1="30%" x2="0%" y2="0%"><stop offset="0%" stop-color="#FC7943"/><stop offset="50%" stop-color="#FEA547"/><stop offset="100%" stop-color="#FDD051"/></linearGradient></defs>
         
         
       <g transform="translate(427, 60) scale(1, 1) translate(-427, -60)">
-        <path d="" fill="#ED702D" opacity="0.45" >
+        <path d="" fill="url(#photoGrad)" opacity="0.45" >
           <animate
               attributeName="d"
               dur="20s"
@@ -26,7 +27,7 @@
               values="M0 0L 0 40Q 213.5 80 427 50T 854 75L 854 0 Z;M0 0L 0 65Q 213.5 80 427 60T 854 50L 854 0 Z;M0 0L 0 85Q 213.5 55 427 85T 854 50L 854 0 Z;M0 0L 0 40Q 213.5 80 427 50T 854 75L 854 0 Z">
           </animate>
         </path>
-        <path d="" fill="#ED702D" opacity="1" >
+        <path d="" fill="url(#photoGrad)" opacity="1" >
           <animate
             attributeName="d"
             dur="20s"
