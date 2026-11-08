@@ -69,31 +69,23 @@
 
 <div align="center">
 
-<sub><b>Languages & Runtimes</b></sub><br/>
 <img src="https://skillicons.dev/icons?i=java" width="48" height="48" alt="Java" title="Java" />
 <img src="https://skillicons.dev/icons?i=py" width="48" height="48" alt="Python" title="Python" />
 <img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript" title="TypeScript" />
 <img src="https://skillicons.dev/icons?i=js" width="48" height="48" alt="JavaScript" title="JavaScript" />
 <img src="https://skillicons.dev/icons?i=ruby" width="48" height="48" alt="Ruby" title="Ruby" />
-<br/><br/>
-<sub><b>Backend & APIs</b></sub><br/>
 <img src="https://skillicons.dev/icons?i=spring" width="48" height="48" alt="Spring Boot" title="Spring Boot" />
 <img src="assets/icons/springsecurity.svg" width="48" height="48" alt="Spring Security" title="Spring Security" />
 <img src="https://skillicons.dev/icons?i=hibernate" width="48" height="48" alt="Hibernate" title="Hibernate" />
 <img src="https://skillicons.dev/icons?i=graphql" width="48" height="48" alt="GraphQL" title="GraphQL" />
-<br/><br/>
-<sub><b>Data & Messaging</b></sub><br/>
+<br/>
 <img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="PostgreSQL" title="PostgreSQL" />
 <img src="https://skillicons.dev/icons?i=mongodb" width="48" height="48" alt="MongoDB" title="MongoDB" />
 <img src="https://skillicons.dev/icons?i=redis" width="48" height="48" alt="Redis" title="Redis" />
 <img src="https://skillicons.dev/icons?i=rabbitmq" width="48" height="48" alt="RabbitMQ" title="RabbitMQ" />
 <img src="assets/icons/dbt.svg" width="48" height="48" alt="dbt" title="dbt" />
 <img src="assets/icons/airflow.svg" width="48" height="48" alt="Airflow" title="Airflow" />
-<br/><br/>
-<sub><b>Cloud & DevOps</b></sub><br/>
 <img src="https://skillicons.dev/icons?i=gcp" width="48" height="48" alt="Google Cloud Platform" title="Google Cloud Platform" />
-<br/><br/>
-<sub><b>AI</b></sub><br/>
 <img src="assets/icons/claude.svg" width="48" height="48" alt="Claude API" title="Claude API" />
 <img src="assets/icons/openai.svg" width="48" height="48" alt="GPT API" title="GPT API" />
 
