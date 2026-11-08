@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/banners/header.svg" width="100%" alt="header" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/77d98d8ed21fb8e421198e390aed84a458c09b07/assets/banners/header.svg" width="100%" alt="header" />
 
 <a href="https://github.com/livyson">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=F97316&center=true&vCenter=true&width=650&lines=Head+of+Engineering+%26+Product;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams" alt="typing" />
@@ -103,4 +103,4 @@
 
 </div>
 
-<img src="assets/banners/footer.svg" width="100%" alt="footer" />
+<img src="https://raw.githubusercontent.com/livyson/livyson/77d98d8ed21fb8e421198e390aed84a458c09b07/assets/banners/footer.svg" width="100%" alt="footer" />
