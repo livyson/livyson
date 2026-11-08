@@ -2,49 +2,32 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D1117,50:F97316,100:FB923C&height=240&section=header&text=Livyson%20%3E_&fontSize=70&fontColor=ffffff&fontAlign=50&fontAlignY=36&desc=Head%20of%20Engineering%20%2B%20Product%20%E2%80%A2%20Builder%20of%20systems%20and%20teams&descSize=18&descAlignY=58&animation=twinkling&stroke=F97316&strokeWidth=1" width="100%" alt="header" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F97316&height=200&section=header&text=Hello,%20I'm%20Livyson!%20🚀&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%" alt="header" />
 
 <a href="https://github.com/livyson">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=F97316&center=true&vCenter=true&width=720&lines=%3E+whoami;Head+of+Engineering+%26+Product+%40+Vittude;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams;while+(alive)+%7B+learn()%3B+build()%3B+share()%3B+%7D" alt="typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=F97316&center=true&vCenter=true&width=650&lines=Head+of+Engineering+%26+Product;Cloud-Native+%7C+Microservices+%7C+EDA;Data+%26+AI-Driven+Product+Leader;15%2B+years+building+high-performing+teams" alt="typing" />
 </a>
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=livyson&label=Profile%20views&color=f97316&style=for-the-badge" alt="profile views" />
-<a href="https://github.com/livyson?tab=followers"><img src="https://img.shields.io/github/followers/livyson?label=Followers&style=for-the-badge&color=0D1117&labelColor=F97316&logo=github" alt="followers" /></a>
-<img src="https://img.shields.io/badge/status-shipping%20%F0%9F%9A%80-0D1117?style=for-the-badge&labelColor=F97316" alt="status" />
+<img src="https://komarev.com/ghpvc/?username=livyson&label=Profile%20views&color=f97316&style=flat" alt="profile views" />
 
 </div>
 
 ---
 
-### 👨🏾‍💻 `~/about-me`
+### 👨🏾‍💻 About me
 
-```yaml
-# livyson.yaml :: loaded from production 🟢
-name: Livyson
-role: Head of Engineering & Product
-experience: 15+ years
-mission: "Transform strategy into scalable products and high-performing teams"
-passions:
-  - cloud-native architectures
-  - microservices & event-driven architecture (EDA)
-  - data analytics & AI-driven products
-  - mentoring engineers and leaders
-```
-
-<table>
-<tr><td>🧭</td><td><b>Head of Engineering & Product</b> at <a href="https://vittude.com/">Vittude</a>, leading the strategy for product and engineering areas.</td></tr>
-<tr><td>🛡️</td><td><b>Head of Technology</b> at <a href="https://www.idwall.co">idwall</a>, leading an area, aligning tech strategy, and boosting operational efficiency by over <b>77.41%</b>.</td></tr>
-<tr><td>⚡</td><td><b>Engineering Tech Manager</b> at <a href="https://www.picpay.com">PicPay</a>, migrated to event-driven architecture and scaled the platform by <b>210%</b> with robust CI/CD pipelines on AWS.</td></tr>
-<tr><td>🎓</td><td><b>University IT Professor</b> at <a href="https://www.uninassau.edu.br">UNINASSAU</a>, teaching Project Management, Software Engineering, and Systems Analysis.</td></tr>
-<tr><td>🧪</td><td><b>Tech Lead & Software Engineer</b> at <a href="https://www.cesar.org.br/">CESAR</a>, and <b>Back-end Developer</b> at <a href="https://www.ogilvy.com/">Ogilvy</a>, building automation frameworks and scalable APIs in Java and Python.</td></tr>
-<tr><td>💡</td><td>Passionate about <b>cloud-native architectures</b>, <b>microservices</b>, <b>EDA</b>, <b>data analytics</b> and mentoring high-performing teams.</td></tr>
-</table>
+- **Head of Engineering & Product** at [Vittude](https://vittude.com/), leading the strategy for product and engineering areas.
+- **Head of Technology** at [idwall](https://www.idwall.co), leading an area, aligning tech strategy, and boosting operational efficiency by over **77.41%**.
+- **Engineering Tech Manager** at [PicPay](https://www.picpay.com), migrated to event-driven architecture and scaled the platform by **210%** with robust CI/CD pipelines on AWS.
+- **University IT Professor** at [UNINASSAU](https://www.uninassau.edu.br), teaching Project Management, Software Engineering, and Systems Analysis.
+- **Tech Lead & Software Engineer** at [CESAR](https://www.cesar.org.br/), and **Back-end Developer** at [Ogilvy](https://www.ogilvy.com/), building automation frameworks and scalable APIs in Java and Python.
+- Passionate about **cloud-native architectures**, **microservices**, **EDA**, **data analytics** and mentoring high-performing teams.
 
 <br/>
 
-### 🎮 `./contribution-pacman --play`
+### 🎮 Contribution Pac-Man
 
 <div align="center">
 
@@ -58,7 +41,7 @@ passions:
 
 <br/>
 
-### 📊 `git log --stats`
+### 📊 GitHub Stats
 
 <div align="center">
 
@@ -72,7 +55,7 @@ passions:
 
 <br/>
 
-### 🍕 `cat tech-distribution.json`
+### 🍕 Tech Distribution
 
 <div align="center">
 
@@ -82,15 +65,7 @@ passions:
 
 <br/>
 
-### 🛠️ `ls ~/tech-stack`
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=java,py,ts,js,ruby,spring,hibernate,graphql,postgres,mongodb,redis,rabbitmq,gcp&perline=13&theme=dark" alt="tech stack icons" />
-
-</div>
-
-<br/>
+### 🛠️ Tech Stack
 
 <table align="center" width="100%">
 <thead>
@@ -145,18 +120,13 @@ passions:
 
 <br/>
 
-### 🌐 `ping livyson`
+### 🌐 Find me at
 
 <div align="center">
 
 <a href="https://www.linkedin.com/in/livyson/" title="LinkedIn (Cmd/Ctrl+click abre em nova aba)"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
 <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=livyson@gmail.com" title="Gmail (Cmd/Ctrl+click abre em nova aba)"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-<a href="https://github.com/livyson"><img src="https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
-
-<br/><br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=4000&pause=1000&color=FB923C&center=true&vCenter=true&width=600&lines=%24+exit+0+%2F%2F+thanks+for+visiting!;Built+with+%E2%98%95%2C+%F0%9F%A7%A0+and+a+lot+of+git+push" alt="footer typing" />
 
 </div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:FB923C,50:F97316,100:0D1117&height=120&section=footer" width="100%" alt="footer" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=F97316&height=120&section=footer" width="100%" alt="footer" />
